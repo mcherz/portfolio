@@ -30,7 +30,9 @@
   "homepage": "https://github.com/mcherz/portfolio#readme",
   "dependencies": {
     "react": "=15.5.4",
-    "react-dom": "=15.5.4"
+    "react-dom": "=15.5.4",
+    "redux": "=3.7.2",
+    "redux-thunk": "=2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

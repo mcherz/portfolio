@@ -1,7 +1,7 @@
 import React from "react"; //eslint-disable-line
 import ReactDOM from "react-dom";
-import Welcome from "components/welcome";
+import PortfolioReduxRoot from "components/portfolio_redux_root";
 
 const app = document.getElementById("app");
 
-ReactDOM.render(<Welcome/>, app);
+ReactDOM.render(<PortfolioReduxRoot/>, app);
