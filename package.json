@@ -9,9 +9,6 @@
     "lint-staged": "lint-staged"
   },
   "lint-staged": {
-    "*.jsx": [
-      "eslint"
-    ],
     "*.js": [
       "eslint",
       "jest --bail --findRelatedTests"
