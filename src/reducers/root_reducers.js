@@ -1,7 +1,11 @@
 import { combineReducers } from "redux";
 
-const rootReducers = combineReducers({
+import assets from "reducers/assets_reducers";
+import page from "reducers/page_reducers";
 
+const rootReducers = combineReducers({
+  assets,
+  page
 });
 
 export default rootReducers;

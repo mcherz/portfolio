@@ -2,15 +2,26 @@ import { connect } from "react-redux";
 
 import Portfolio from "components/portfolio.js";
 
-const mapStateToProps = (/*state, ownProps*/) => {
-  return {
+import {
+  setActiveImageIndex
+} from "actions/assets_actions";
+import sizePage from "actions/size_page";
 
+const mapStateToProps = (state/*, ownProps*/) => {
+  return {
+    activeAsset: state.assets.activeAsset,
+    pageHeight: state.page.pageHeight
   };
 };
 
-const mapDispatchToProps = (/*dispatch, ownProps*/) => {
+const mapDispatchToProps = (dispatch/*, ownProps*/) => {
   return {
-
+    setActiveImageIndex(index, section){
+      dispatch(setActiveImageIndex(index, section));
+    },
+    sizePage(){
+      dispatch(sizePage());
+    }
   };
 };
 

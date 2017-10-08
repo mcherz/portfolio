@@ -8,6 +8,9 @@
     "test": "jest",
     "lint-staged": "lint-staged"
   },
+  "jest": {
+    "modulePaths": ["src"]
+  },
   "lint-staged": {
     "*.js": [
       "eslint",
