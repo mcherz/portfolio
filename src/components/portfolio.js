@@ -4,6 +4,7 @@ import Cover from "components/display_components/cover";
 import SectionContainer from "containers/section_container";
 import TopNav from "components/display_components/top_nav";
 
+import animateScroll from "helpers/animate_scroll";
 import constants from "helpers/constants";
 import sections from "helpers/sections";
 
@@ -32,16 +33,13 @@ class Portfolio extends React.Component {
       if (navSection !== "cover") {
         scrollTop -= 40;
       }
-      this.container.scrollTop = scrollTop;
-      this.setState({
-        containerScrollTop: scrollTop
-      });
+      animateScroll(this.container, scrollTop);
     }
   }
 
   render = () => {
     return <div className="portfolio" style={{height: this.props.pageHeight}}>
-      <TopNav containerScrollTop={this.state.containerScrollTop} />
+      <TopNav containerScrollTop={this.state.containerScrollTop} onNavClick={this.navigateToSection} />
       <div ref={(div) => {
         this.container = div;
       }}

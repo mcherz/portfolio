@@ -9,6 +9,14 @@ class TopNav extends React.Component {
     return scrolledDown || scrolledUp;
   }
 
+  handleHomeClick = () => {
+    this.props.onNavClick(constants.sections.cover);
+  }
+
+  handleWorkClick = () => {
+    this.props.onNavClick(constants.sections.gearCalc);
+  }
+
   render = () => {
     let topBarClass = "top-bar top-bar-hidden";
     let wrapperClass = "nav-wrapper";
@@ -19,10 +27,10 @@ class TopNav extends React.Component {
       linkClass = "small-nav-link";
     }
     return (<div>
-        <div className={topBarClass}>Matt Herz</div>
+        <div className={topBarClass}><span className="matt-herz" onClick={this.handleHomeClick}>Matt Herz</span></div>
         <div className={wrapperClass}>
-          <div className={linkClass}>home</div>
-          <div className={linkClass}>work</div>
+          <div className={linkClass} onClick={this.handleHomeClick}>home</div>
+          <div className={linkClass} onClick={this.handleWorkClick}>work</div>
           <div className={linkClass}>about</div>
           <div className={linkClass}>contact</div>
         </div>

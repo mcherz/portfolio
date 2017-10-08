@@ -28,7 +28,7 @@ const constants = {
     up: "up",
     down: "down"
   },
-  navScrollBreakpoint: 20,
+  navScrollBreakpoint: 30,
 
   sections: {
     cover: "cover",
