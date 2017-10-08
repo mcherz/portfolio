@@ -11,12 +11,10 @@ class Section extends React.Component {
   componentWillMount = () => {
     this.thumbs = [];
     for (let a in this.props.section.assets) {
-      const thumbProps = {
-        index: a,
-        onThumbClick: this.props.setActiveImageIndex,
-        prefix: this.props.section.thumbnailString
-      };
-      this.thumbs.push(Thumbnail(thumbProps));
+      this.thumbs.push(<Thumbnail key={a}
+                                  index={a}
+                                  onThumbClick={this.props.setActiveImageIndex}
+                                  prefix={this.props.section.thumbnailString} />);
     }
   }
 
@@ -28,7 +26,7 @@ class Section extends React.Component {
     const asset = this.props.section.assets[parseInt(indexString)];
     switch (asset.type) {
     case "IFRAME":
-      return IFrame(constants.iFrames[asset.key]);
+      return <IFrame iFrame={constants.iFrames[asset.key]} />;
     case "IMAGE":
       return <img className="image-default" src={asset.src} />;
     }

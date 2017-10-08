@@ -28,6 +28,16 @@ const constants = {
     up: "up",
     down: "down"
   },
+  navScrollBreakpoint: 20,
+
+  sections: {
+    cover: "cover",
+    gearCalc: "gearCalc",
+    nav: "nav",
+    navAppt: "navAppt",
+    upsell: "upsell",
+    calls: "calls"
+  },
 
   thumbnailPath: "images/thumbs/"
 };
