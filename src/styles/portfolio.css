@@ -13,6 +13,7 @@
 }
 
 .phone-hardware-horizontal {
+  position: absolute;
 	top: 0px;
 	left: 0px;
 	height: 433px;
@@ -30,6 +31,7 @@
 }
 
 .phone-hardware-vertical {
+  position: absolute;
 	top: 0px;
 	left: 0px;
 	height: 801px;
@@ -72,7 +74,7 @@
 }
 
 .work {
-	flex: 2 1;
+	flex: 6 3.5;
   min-width: 100px;
   position: relative;
 	height: 85%;
@@ -104,7 +106,7 @@
 }
 
 .description {
-	flex: 1 2;
+	flex: 3.5 6;
   min-width: 100px;
 	padding-left: 0;
 	padding-right: 2.5%;

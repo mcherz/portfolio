@@ -8,14 +8,17 @@ import sections from "helpers/sections";
 class Portfolio extends React.Component {
   componentWillMount = () => {
     this.props.sizePage();
+    window.addEventListener("resize", this.props.sizePage);
   }
 
   handleArrowClick = (navSection) => {
-    let scrollTop = this[navSection].offsetTop;
-    if (navSection !== "cover") {
-      scrollTop -= 40;
+    if (navSection && this[navSection]) {
+      let scrollTop = this[navSection].offsetTop;
+      if (navSection !== "cover") {
+        scrollTop -= 40;
+      }
+      this.container.scrollTop = scrollTop;
     }
-    this.container.scrollTop = scrollTop;
   }
 
   render = () => {
@@ -31,10 +34,34 @@ class Portfolio extends React.Component {
           onArrowClick={this.handleArrowClick} />
       </div>
       <div ref={(div) => {
+        this.nav = div;
+      }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
+        <SectionContainer
+          section={sections.nav}
+          pageHeight={this.props.pageHeight}
+          onArrowClick={this.handleArrowClick} />
+      </div>
+      <div ref={(div) => {
         this.navAppt = div;
       }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
         <SectionContainer
-          section={sections.gearCalc}
+          section={sections.navAppt}
+          pageHeight={this.props.pageHeight}
+          onArrowClick={this.handleArrowClick} />
+      </div>
+      <div ref={(div) => {
+        this.upsell = div;
+      }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
+        <SectionContainer
+          section={sections.upsell}
+          pageHeight={this.props.pageHeight}
+          onArrowClick={this.handleArrowClick} />
+      </div>
+      <div ref={(div) => {
+        this.calls = div;
+      }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
+        <SectionContainer
+          section={sections.calls}
           pageHeight={this.props.pageHeight}
           onArrowClick={this.handleArrowClick} />
       </div>

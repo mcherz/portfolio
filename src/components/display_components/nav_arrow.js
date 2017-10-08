@@ -16,7 +16,7 @@ class NavArrow extends React.Component {
     if (this.props.direction === constants.navDirections.up) {
       arrowStyle.top = 5;
     } else {
-      arrowStyle.bottom = 5;
+      arrowStyle.bottom = -35;
     }
     const arrow = constants.arrows[this.props.direction];
     return <svg height="20"

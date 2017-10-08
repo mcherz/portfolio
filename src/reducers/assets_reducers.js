@@ -6,7 +6,11 @@ import * as assetsActions from "actions/assets_actions";
 // define initial state of model
 const assetInitialState = {
   activeAsset: {
-    gearCalc: 0
+    gearCalc: 0,
+    nav: 0,
+    navAppt: 0,
+    upsell: 0,
+    calls: 0
   }
 };
 
