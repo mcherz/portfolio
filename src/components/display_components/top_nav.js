@@ -17,6 +17,14 @@ class TopNav extends React.Component {
     this.props.onNavClick(constants.sections.gearCalc);
   }
 
+  handleAboutClick = () => {
+    this.props.onNavClick(constants.sections.about);
+  }
+
+  handleContactClick = () => {
+    this.props.onNavClick(constants.sections.contact);
+  }
+
   render = () => {
     let topBarClass = "top-bar top-bar-hidden";
     let wrapperClass = "nav-wrapper";
@@ -31,8 +39,8 @@ class TopNav extends React.Component {
         <div className={wrapperClass}>
           <div className={linkClass} onClick={this.handleHomeClick}>home</div>
           <div className={linkClass} onClick={this.handleWorkClick}>work</div>
-          <div className={linkClass}>about</div>
-          <div className={linkClass}>contact</div>
+          <div className={linkClass} onClick={this.handleAboutClick}>about</div>
+          <div className={linkClass} onClick={this.handleContactClick}>contact</div>
         </div>
       </div>
     );

@@ -128,19 +128,27 @@ const sections = {
         src: "images/calls/spec.png"
       },
     ],
-
-
-
-
     body: ["Objective: Provide access for Marchex customers to directly view their Calls reporting data.",
       "Results: Self-serve customer login replaced Excel spreadsheets emailed to customers weekly (or daily), increasing customer access to data and customer satisfaction and decreasing administrative load on account managers."
     ],
-    next: "",
+    next: "about",
     previous: "upsell",
     sectionKey: "calls",
     subtitle: "Design",
     title: "Marchex Calls Reporting",
     thumbnailString: "calls-thumb-"
+  },
+
+  about: {
+    imgSrc: "images/mh_square.jpg",
+    resumeHref: "docs/mh_resume.pdf",
+    resumeText: "I have one here",
+    text: "In a couple of sentences: I've been a UI developer for almost 2 years, and I was a UX designer for 6 years before that. I was trained as an architect, and I've worked as a photographer; I'm professionally creative. I also built this portfolio from scratch using React, Redux, and Webpack. If you'd like a more formal resume, ",
+    title: "About Me"
+  },
+
+  contact: {
+    title: "I'd love to hear from you regarding UX opportunities."
   }
 };
 

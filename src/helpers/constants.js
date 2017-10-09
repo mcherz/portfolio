@@ -36,7 +36,9 @@ const constants = {
     nav: "nav",
     navAppt: "navAppt",
     upsell: "upsell",
-    calls: "calls"
+    calls: "calls",
+    about: "about",
+    contact: "contact"
   },
 
   thumbnailPath: "images/thumbs/"

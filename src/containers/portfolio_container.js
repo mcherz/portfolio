@@ -10,7 +10,8 @@ import sizePage from "actions/size_page";
 const mapStateToProps = (state/*, ownProps*/) => {
   return {
     activeAsset: state.assets.activeAsset,
-    pageHeight: state.page.pageHeight
+    pageHeight: state.page.pageHeight,
+    pageWidth: state.page.pageWidth
   };
 };
 

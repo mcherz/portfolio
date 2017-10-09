@@ -1,5 +1,7 @@
 import React from "react";
 
+import AboutMe from "components/display_components/about_me";
+import Contact from "components/display_components/contact";
 import Cover from "components/display_components/cover";
 import SectionContainer from "containers/section_container";
 import TopNav from "components/display_components/top_nav";
@@ -90,6 +92,16 @@ class Portfolio extends React.Component {
             section={sections.calls}
             pageHeight={this.props.pageHeight}
             onArrowClick={this.navigateToSection} />
+        </div>
+        <div ref={(div) => {
+          this.about = div;
+        }} style={{height: this.props.pageWidth/2}}>
+          <AboutMe />
+        </div>
+        <div ref={(div) => {
+          this.contact = div;
+        }} style={{height: "320px"}}>
+          <Contact />
         </div>
       </div>
     </div>;
