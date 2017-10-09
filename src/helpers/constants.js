@@ -32,6 +32,7 @@ const constants = {
 
   sections: {
     cover: "cover",
+    segmentation: "segmentation",
     gearCalc: "gearCalc",
     nav: "nav",
     navAppt: "navAppt",

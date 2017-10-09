@@ -8,6 +8,7 @@ describe("Asset Reducer tests", () => {
       ).toEqual(
       {
         activeAsset: {
+          segmentation: 0,
           gearCalc: 0,
           nav: 0,
           navAppt: 0,

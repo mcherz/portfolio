@@ -1,4 +1,23 @@
 const sections = {
+  segmentation: {
+    assets: [
+      {
+        type: "VIDEO",
+        src: "video/segmentation/seg-training.webm"
+      }
+    ],
+    body: ["Objective: Build an intuitive, easy to use semantic image segmentation tool capable of pixel level accuracy.",
+      "Result: Tens of thousands of fully segmented images in a platform that is extensible into other annotation types. Client data satisfaction resulted in multiple very large contract expansions.",
+      "Designed and built from scratch in React/Redux. Component abstractions are good enough that the same rendering layer can power 8 completely different drawing/viewing use cases; proprietary polygon detection math remains among the things I'm most proud of professionally."
+    ],
+    next: "gearCalc",
+    previous: "cover",
+    sectionKey: "segmentation",
+    subtitle: "Interaction Design & React/Redux implementation",
+    title: "Semantic Segmentation Tool",
+    thumbnailString: "seg-thumb-"
+  },
+
   gearCalc: {
     assets: [
       {
@@ -23,7 +42,7 @@ const sections = {
       "Designed and built from scratch in Objective C. Not only replaces a paper gear chart, but also allows direct incrementation of the resulting gear itself, a feature impossible on a piece of paper. Full port to HTML/CSS/jQuery (for Android/Windows PhoneGap builds) shown here (in an iframe); dowload codes available on request."
     ],
     next: "nav",
-    previous: "cover",
+    previous: "segmentation",
     sectionKey: "gearCalc",
     subtitle: "Design & ObjC implementation",
     subTitleLinkHref: "https://itunes.apple.com/us/app/track-gear-calculator/id725953062?ls=1&mt=8#",

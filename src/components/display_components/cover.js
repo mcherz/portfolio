@@ -6,7 +6,7 @@ import constants from "helpers/constants";
 
 const Cover = (props) => {
   const handleArrowClick = () => {
-    props.onArrowClick(constants.sections.gearCalc);
+    props.onArrowClick(constants.sections.segmentation);
   };
 
   let margin = (props.pageHeight - 400)/2;

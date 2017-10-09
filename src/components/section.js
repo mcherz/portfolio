@@ -22,6 +22,14 @@ class Section extends React.Component {
     this.props.onArrowClick(target);
   }
 
+  getVideoWidth = () => {
+    if (this.imageWrapper) {
+      return this.imageWrapper.getBoundingClientRect().width - 100;
+    } else {
+      return 300;
+    }
+  }
+
   renderAsset = (indexString) => {
     const asset = this.props.section.assets[parseInt(indexString)];
     switch (asset.type) {
@@ -29,13 +37,17 @@ class Section extends React.Component {
       return <IFrame iFrame={constants.iFrames[asset.key]} />;
     case "IMAGE":
       return <img className="image-default" src={asset.src} />;
+    case "VIDEO":
+      return <video src={asset.src} controls width={this.getVideoWidth()} />;
     }
   }
 
   render = () => {
     return <div className="section">
       <div className="work">
-        <div className="image-wrapper">
+        <div className="image-wrapper" ref={(div) => {
+          this.imageWrapper = div;
+        }}>
           {this.renderAsset(this.props.activeAsset)}
           <div className="thumbnail-holder">
             {this.thumbs}

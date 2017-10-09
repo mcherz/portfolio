@@ -54,6 +54,14 @@ class Portfolio extends React.Component {
           <Cover pageHeight={this.props.pageHeight} onArrowClick={this.navigateToSection} />
         </div>
         <div ref={(div) => {
+          this.segmentation = div;
+        }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
+          <SectionContainer
+            section={sections.segmentation}
+            pageHeight={this.props.pageHeight}
+            onArrowClick={this.navigateToSection} />
+        </div>
+        <div ref={(div) => {
           this.gearCalc = div;
         }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
           <SectionContainer

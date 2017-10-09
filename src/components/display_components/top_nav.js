@@ -14,7 +14,7 @@ class TopNav extends React.Component {
   }
 
   handleWorkClick = () => {
-    this.props.onNavClick(constants.sections.gearCalc);
+    this.props.onNavClick(constants.sections.segmentation);
   }
 
   handleAboutClick = () => {
