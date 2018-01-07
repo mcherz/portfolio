@@ -1,5 +1,69 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,900');
 
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .portfolio {
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 80%;
+  max-width: 500px;
+}
+
+.responses {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 200;
+  color: #666666;
+}
+
+.entry {
+  display: flex;
+  margin-top: 40px;
+}
+
+.type-entry {
+  flex: 1 1;
+  font-size: 16px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+
+.type-entry:focus {
+  outline-offset: -2px;
+  outline: #dddddd auto 5px;
+}
+
+.type-commit {
+  flex: 0 0 120px;
+  margin-left: 20px;
+  height: 30px;
+  background-color: #6677bb;
+  text-align: center;
+  padding: 1px;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 200;
+  border: none;
+}
+
+.type-commit:hover {
+  background-color: #193399;
+}
+
+.type-commit:focus {
+  outline-offset: -2px;
+  outline: #dddddd auto 5px;
 }

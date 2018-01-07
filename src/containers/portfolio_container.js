@@ -7,7 +7,9 @@ import sizePage from "actions/size_page";
 const mapStateToProps = (state/*, ownProps*/) => {
   return {
     pageHeight: state.page.pageHeight,
-    pageWidth: state.page.pageWidth
+    pageWidth: state.page.pageWidth,
+
+    currentResponse: state.response.currentResponse
   };
 };
 
