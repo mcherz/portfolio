@@ -1,15 +1,5 @@
 import React from "react";
 
-import AboutMe from "components/display_components/about_me";
-import Contact from "components/display_components/contact";
-import Cover from "components/display_components/cover";
-import SectionContainer from "containers/section_container";
-import TopNav from "components/display_components/top_nav";
-
-import animateScroll from "helpers/animate_scroll";
-import constants from "helpers/constants";
-import sections from "helpers/sections";
-
 class Portfolio extends React.Component {
   constructor(props) {
     super(props);
@@ -18,99 +8,19 @@ class Portfolio extends React.Component {
     };
   }
 
-  handleScroll = () => {
-    this.setState({
-      containerScrollTop: this.container.scrollTop
-    });
-  }
-
   componentWillMount = () => {
     this.props.sizePage();
     window.addEventListener("resize", this.props.sizePage);
   }
 
-  navigateToSection = (navSection) => {
-    if (navSection && this[navSection]) {
-      let scrollTop = this[navSection].offsetTop;
-      if (navSection !== "cover") {
-        scrollTop -= 40;
-      }
-      animateScroll(this.container, scrollTop);
-    }
-  }
-
   render = () => {
     return <div className="portfolio" style={{height: this.props.pageHeight}}>
-      <TopNav containerScrollTop={this.state.containerScrollTop} onNavClick={this.navigateToSection} />
       <div ref={(div) => {
         this.container = div;
       }}
       className="portfolio-content"
-      style={{height: this.props.pageHeight}}
-      onScroll={this.handleScroll}>
-        <div ref={(div) => {
-          this.cover = div;
-        }} style={{height: this.props.pageHeight}}>
-          <Cover pageHeight={this.props.pageHeight} onArrowClick={this.navigateToSection} />
-        </div>
-        <div ref={(div) => {
-          this.segmentation = div;
-        }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
-          <SectionContainer
-            section={sections.segmentation}
-            pageHeight={this.props.pageHeight}
-            onArrowClick={this.navigateToSection} />
-        </div>
-        <div ref={(div) => {
-          this.gearCalc = div;
-        }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
-          <SectionContainer
-            section={sections.gearCalc}
-            pageHeight={this.props.pageHeight}
-            onArrowClick={this.navigateToSection} />
-        </div>
-        <div ref={(div) => {
-          this.nav = div;
-        }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
-          <SectionContainer
-            section={sections.nav}
-            pageHeight={this.props.pageHeight}
-            onArrowClick={this.navigateToSection} />
-        </div>
-        <div ref={(div) => {
-          this.navAppt = div;
-        }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
-          <SectionContainer
-            section={sections.navAppt}
-            pageHeight={this.props.pageHeight}
-            onArrowClick={this.navigateToSection} />
-        </div>
-        <div ref={(div) => {
-          this.upsell = div;
-        }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
-          <SectionContainer
-            section={sections.upsell}
-            pageHeight={this.props.pageHeight}
-            onArrowClick={this.navigateToSection} />
-        </div>
-        <div ref={(div) => {
-          this.calls = div;
-        }} style={{height: this.props.pageHeight - constants.navBarHeight}} className="section-wrapper">
-          <SectionContainer
-            section={sections.calls}
-            pageHeight={this.props.pageHeight}
-            onArrowClick={this.navigateToSection} />
-        </div>
-        <div ref={(div) => {
-          this.about = div;
-        }} style={{height: this.props.pageWidth/2}}>
-          <AboutMe />
-        </div>
-        <div ref={(div) => {
-          this.contact = div;
-        }} style={{height: "320px"}}>
-          <Contact />
-        </div>
+      style={{height: this.props.pageHeight}}>
+        hello world
       </div>
     </div>;
   }

@@ -4,7 +4,6 @@ module.exports = {
       "es6": true,
       "jest/globals": true
   },
-  "extends": "eslint:recommended",
   "parser": "babel-eslint",
   "parserOptions": {
       "ecmaFeatures": {
