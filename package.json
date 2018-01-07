@@ -35,6 +35,7 @@
   "homepage": "https://github.com/mcherz/portfolio#readme",
   "dependencies": {
     "dot-prop-immutable": "^1.4.0",
+    "elizabot": "^0.0.2",
     "react": "=16.2.0",
     "react-dom": "=16.2.0",
     "react-redux": "=5.0.6",

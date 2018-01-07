@@ -1,17 +1,13 @@
 import reducer from "reducers/response_reducers"
 import * as types from "actions/response_actions"
 
+import {responseInitialState} from "reducers/response_reducers"
+
 describe("Page Reducer tests", () => {
   it("should return the initial state", () => {
     expect(
       reducer(undefined, {})
-      ).toEqual(
-      {
-        buttonActive: true,
-
-        responseArray: [{party: "app", text:"Hi there. Let's chat."}]
-      }
-    )
+      ).toEqual(responseInitialState)
   })
 
   it("should set the button active state", () => {
