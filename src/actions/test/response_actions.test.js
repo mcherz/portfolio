@@ -1,13 +1,13 @@
-import * as actions from "actions/response_actions";
+import * as actions from "actions/response_actions"
 
 describe("Response Actions", () => {
 
   it("should create an action to set the current response.", () => {
-    const response = "wat";
+    const response = {party: "app", text: "wat"}
     const expectedAction = {
-      type: actions.SET_CURRENT_RESPONSE,
+      type: actions.ADD_RESPONSE,
       payload: response
-    };
-    expect(actions.setCurrentResponse("wat")).toEqual(expectedAction);
-  });
-});
+    }
+    expect(actions.addResponse("app", "wat")).toEqual(expectedAction)
+  })
+})

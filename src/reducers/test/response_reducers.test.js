@@ -1,5 +1,5 @@
-import reducer from "reducers/response_reducers";
-import * as types from "actions/response_actions";
+import reducer from "reducers/response_reducers"
+import * as types from "actions/response_actions"
 
 describe("Page Reducer tests", () => {
   it("should return the initial state", () => {
@@ -7,23 +7,38 @@ describe("Page Reducer tests", () => {
       reducer(undefined, {})
       ).toEqual(
       {
-        currentResponse: "Hi there. Let's chat.",
+        responseArray: [{party: "app", text:"Hi there. Let's chat."}]
       }
-    );
-  });
+    )
+  })
 
-  it("should set the page height state", () => {
+  it("should add a response", () => {
     expect(
       reducer({
-        currentResponse: "blah"
+        responseArray: ["blah"]
       }, {
-        type: types.SET_CURRENT_RESPONSE,
-        payload: "blah blah"
+        type: types.ADD_RESPONSE,
+        payload: "wat"
       })
       ).toEqual(
       {
-        currentResponse: "blah blah"
+        responseArray: ["blah", "wat"]
       }
-    );
-  });
-});
+    )
+  })
+
+  it("should cap the conversation at MAX_CONVERSATION", () => {
+    expect(
+      reducer({
+        responseArray: [1,2,3,4,5,6]
+      }, {
+        type: types.ADD_RESPONSE,
+        payload: 7
+      })
+      ).toEqual(
+      {
+        responseArray: [2,3,4,5,6,7]
+      }
+    )
+  })
+})

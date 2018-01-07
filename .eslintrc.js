@@ -36,7 +36,7 @@ module.exports = {
       ],
       "semi": [
           "error",
-          "always"
+          "never"
       ],
       "no-console": [
         "warn"
@@ -47,9 +47,6 @@ module.exports = {
       ],
       "no-global-assign" : [
         "error"
-      ],
-      "brace-style" : [
-        "warn"
       ],
       "arrow-spacing" : [
         "warn"

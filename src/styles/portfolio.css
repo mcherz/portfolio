@@ -21,7 +21,22 @@ body {
   max-width: 500px;
 }
 
-.responses {
+.conversation {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.query {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  color: #6677bb;
+  margin: 8px 0;
+}
+
+.response {
   text-align: center;
   font-size: 40px;
   font-weight: 200;

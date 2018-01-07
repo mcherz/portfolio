@@ -1,7 +1,7 @@
-export const SET_CURRENT_RESPONSE = "SET_CURRENT_RESPONSE";
-export const setCurrentResponse = (response) => {
+export const ADD_RESPONSE = "ADD_RESPONSE"
+export const addResponse = (party, text) => {
   return {
-    type: SET_CURRENT_RESPONSE,
-    payload: response
-  };
-};
+    type: ADD_RESPONSE,
+    payload: {party, text}
+  }
+}

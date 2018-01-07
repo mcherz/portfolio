@@ -1,21 +1,21 @@
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 
-import Portfolio from "components/portfolio.js";
+import Portfolio from "components/portfolio.js"
 
 const mapStateToProps = (state/*, ownProps*/) => {
   return {
-    currentResponse: state.response.currentResponse
-  };
-};
+    responseArray: state.response.responseArray
+  }
+}
 
 const mapDispatchToProps = (dispatch/*, ownProps*/) => {
   return {
-  };
-};
+  }
+}
 
 const PortfolioContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Portfolio);
+)(Portfolio)
 
-export default PortfolioContainer;
+export default PortfolioContainer
