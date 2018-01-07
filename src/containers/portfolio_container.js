@@ -2,6 +2,8 @@ import { connect } from "react-redux"
 
 import Portfolio from "components/portfolio.js"
 
+import submitText from "actions/submit_text"
+
 const mapStateToProps = (state/*, ownProps*/) => {
   return {
     responseArray: state.response.responseArray
@@ -10,6 +12,9 @@ const mapStateToProps = (state/*, ownProps*/) => {
 
 const mapDispatchToProps = (dispatch/*, ownProps*/) => {
   return {
+    submitText(text){
+      dispatch(submitText( text))
+    }
   }
 }
 

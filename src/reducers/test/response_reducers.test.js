@@ -7,7 +7,24 @@ describe("Page Reducer tests", () => {
       reducer(undefined, {})
       ).toEqual(
       {
+        buttonActive: true,
+
         responseArray: [{party: "app", text:"Hi there. Let's chat."}]
+      }
+    )
+  })
+
+  it("should set the button active state", () => {
+    expect(
+      reducer({
+        buttonActive: true
+      }, {
+        type: types.SET_BUTTON_ACTIVE,
+        payload: false
+      })
+      ).toEqual(
+      {
+        buttonActive: false
       }
     )
   })

@@ -10,4 +10,13 @@ describe("Response Actions", () => {
     }
     expect(actions.addResponse("app", "wat")).toEqual(expectedAction)
   })
+
+  it("should create an action to set the button state.", () => {
+    const active = true
+    const expectedAction = {
+      type: actions.SET_BUTTON_ACTIVE,
+      payload: active
+    }
+    expect(actions.setButtonActive(active)).toEqual(expectedAction)
+  })
 })

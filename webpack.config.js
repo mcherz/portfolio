@@ -1,6 +1,6 @@
-const path = require("path");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const webpack = require("webpack");
+const path = require("path")
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const webpack = require("webpack")
 
 module.exports = {
   entry: "./src/index.js",
@@ -34,11 +34,11 @@ module.exports = {
     contentBase: path.resolve(__dirname, "dist")
   },
   plugins: [
-    new UglifyJsPlugin({
-      sourceMap: false
-    }),
+    // new UglifyJsPlugin({
+    //   sourceMap: false
+    // }),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production")
     }),
   ]
-};
+}
