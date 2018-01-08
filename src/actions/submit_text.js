@@ -9,7 +9,10 @@ const submitText = (text) => (dispatch, getState) => {
     dispatch(setButtonActive(false))
     dispatch(addResponse(constants.USER_QUERY, text))
     setTimeout(() => {
-      dispatch(addResponse(constants.APP_RESPONSE, getAppResponse(text)))
+      const response = getAppResponse(text)
+      dispatch(addResponse(constants.APP_RESPONSE, response.jsx))
+      let utterThis = new SpeechSynthesisUtterance(response.plainText)
+      speechSynthesis.speak(utterThis)
       dispatch(setButtonActive(true))
     }, constants.CONVERSATION_LAG)
   }
