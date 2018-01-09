@@ -4,7 +4,7 @@
   "description": "portfolio-package-json",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --host 0.0.0.0",
     "test": "jest",
     "precommit": "lint-staged"
   },
@@ -37,6 +37,7 @@
     "bowser": "^1.9.1",
     "dot-prop-immutable": "^1.4.0",
     "elizabot": "^0.0.2",
+    "font-awesome": "^4.7.0",
     "react": "=16.2.0",
     "react-dom": "=16.2.0",
     "react-redux": "=5.0.6",
