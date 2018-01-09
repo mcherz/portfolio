@@ -1,18 +1,18 @@
-import React from "react";
-import { Provider } from "react-redux";
+import React from "react"
+import { Provider } from "react-redux"
 import {
   createStore,
   applyMiddleware,
   compose
-} from "redux";
-import thunkMiddleware from "redux-thunk";
+} from "redux"
+import thunkMiddleware from "redux-thunk"
 
-import rootReducers from "reducers/root_reducers";
+import rootReducers from "reducers/root_reducers"
 
-import PortfolioContainer from "containers/portfolio_container";
+import PortfolioContainer from "containers/portfolio_container"
 
-let store;
-let composeEnhancers;
+let store
+let composeEnhancers
 
 class PortfolioReduxRoot extends React.Component{
 
@@ -22,15 +22,15 @@ class PortfolioReduxRoot extends React.Component{
       typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
           name: "portfolio"
-        }) : compose;
+        }) : compose
 
     const enhancer = composeEnhancers(
       applyMiddleware(thunkMiddleware)
-    );
+    )
 
-    let initialState = this.props;
+    let initialState = this.props
 
-    store = createStore(rootReducers, initialState, enhancer);
+    store = createStore(rootReducers, initialState, enhancer)
   }
 
   render() {
@@ -38,9 +38,9 @@ class PortfolioReduxRoot extends React.Component{
       <Provider store={store}>
         <PortfolioContainer />
       </Provider>
-    );
+    )
   }
 
 }
 
-export default PortfolioReduxRoot;
+export default PortfolioReduxRoot

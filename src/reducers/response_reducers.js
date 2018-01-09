@@ -12,7 +12,7 @@ export const responseInitialState = {
   responseArray: [{party: constants.APP_RESPONSE, text:"Hi there. Let's chat."}]
 }
 
-function page(state = responseInitialState, action){
+function response(state = responseInitialState, action){
   switch(action.type){
     case responseActions.ADD_RESPONSE:
       let returnArray = [...state.responseArray]
@@ -29,4 +29,4 @@ function page(state = responseInitialState, action){
 
 }
 
-export default page
+export default response

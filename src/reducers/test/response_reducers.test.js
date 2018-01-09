@@ -3,7 +3,7 @@ import * as types from "actions/response_actions"
 
 import {responseInitialState} from "reducers/response_reducers"
 
-describe("Page Reducer tests", () => {
+describe("Response Reducer tests", () => {
   it("should return the initial state", () => {
     expect(
       reducer(undefined, {})

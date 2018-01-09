@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/mcherz/portfolio#readme",
   "dependencies": {
+    "bowser": "^1.9.1",
     "dot-prop-immutable": "^1.4.0",
     "elizabot": "^0.0.2",
     "react": "=16.2.0",

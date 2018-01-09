@@ -8,7 +8,7 @@ describe("<Portfolio />", () => {
   it("renders some divs", () => {
     const mockFunction = () => {}
     const wrapper = shallow(<Portfolio sizePage={mockFunction} />)
-    expect(wrapper.find("div").length).toBe(3)
+    expect(wrapper.find("div").length).toBe(4)
   })
 
   it("renders a Conversation element", () => {
