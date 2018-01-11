@@ -39,4 +39,49 @@ describe("Speech Reducer tests", () => {
       }
     )
   })
+
+  it("should set the listening state", () => {
+    expect(
+      reducer({
+        listening: true
+      }, {
+        type: types.SET_LISTENING,
+        payload: false
+      })
+      ).toEqual(
+      {
+        listening: false
+      }
+    )
+  })
+
+  it("should set the listening timeout state", () => {
+    expect(
+      reducer({
+        listeningTimeout: null
+      }, {
+        type: types.SET_LISTENING_TIMEOUT,
+        payload: 1234
+      })
+      ).toEqual(
+      {
+        listeningTimeout: 1234
+      }
+    )
+  })
+
+  it("should set the listening button state", () => {
+    expect(
+      reducer({
+        listeningButtonDown: false
+      }, {
+        type: types.SET_LISTENING_BUTTON_DOWN,
+        payload: true
+      })
+      ).toEqual(
+      {
+        listeningButtonDown: true
+      }
+    )
+  })
 })

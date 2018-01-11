@@ -8,6 +8,7 @@ body {
 
 a {
   color: #aaaaaa;
+  cursor: pointer;
 }
 
 .portfolio {
@@ -49,7 +50,32 @@ a {
 
 .entry {
   display: flex;
+  justify-content: center;
   margin-top: 40px;
+}
+
+.hold-to-talk {
+  cursor: pointer;
+  height: 30px;
+  padding: 12px 24px;
+  text-align: center;
+  background-color: #a0a0a0;
+  font-size: 24px;
+  font-weight: 200;
+  color: white;
+  border-radius: 5px;
+}
+
+.hold-to-talk:hover {
+  background-color: #808080
+}
+
+.hold-to-talk.active {
+  background-color: #193399
+}
+
+.hold-to-talk.active:hover {
+  background-color: #193399
 }
 
 .type-entry {

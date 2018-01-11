@@ -7,6 +7,30 @@ import { Volume2, VolumeX } from "icons/volume"
 import constants from "helpers/constants"
 
 class Portfolio extends React.Component {
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.speechRecActive && !this.props.speechRecActive) {
+      window.addEventListener("keydown", this.handleWindowKeyDown)
+      window.addEventListener("keyup", this.handleWindowKeyUp)
+    }
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener("keydown", this.handleWindowKeyDown)
+    window.removeEventListener("keyup", this.handleWindowKeyUp)
+  }
+
+  handleWindowKeyDown = (e) => {
+    if (e.keyCode === 32) {
+      this.props.startListening()
+    }
+  }
+
+  handleWindowKeyUp = (e) => {
+    if (e.keyCode === 32) {
+      this.props.handleListenButtonUp()
+    }
+  }
+
   handleButtonClick = () => {
     this.props.submitText(this.typeEntry.value)
     this.typeEntry.value = ""
@@ -27,7 +51,9 @@ class Portfolio extends React.Component {
 
   renderEntry = () => {
     if (this.props.speechRecActive) {
-      return null
+      return <div className="entry" >
+        <div className={`hold-to-talk${this.props.listening ? " active" : ""}`} onMouseDown={this.props.startListening} onMouseUp={this.props.handleListenButtonUp} onMouseLeave={this.props.handleListenButtonUp}>Press and hold to speak</div>
+      </div>
     } else {
       return <div className="entry">
         <input ref={(input) => {this.typeEntry = input}} className="type-entry" type="text" onKeyDown={this.handleInputKeydown} />
@@ -38,7 +64,11 @@ class Portfolio extends React.Component {
 
   renderInputSubtitle = () => {
     if (bowser.name === "Chrome") {
-      return <div className="input-subtitle">Want to try this <a onClick={this.handleTheAwesomeWay} >the awesome way</a>?</div>
+      if (this.props.speechRecActive) {
+        return <div className="input-subtitle">Or press and hold the spacebar</div>
+      } else {
+        return <div className="input-subtitle">Want to try this <a onClick={this.handleTheAwesomeWay} >the awesome way</a>?</div>
+      }
     } else {
       return <div className="input-subtitle">Protip: the coolest part only works in <a href="https://www.google.com/chrome/browser/" target="_blank" rel="noreferrer noopener" >Chrome</a>.</div>
     }
@@ -55,7 +85,7 @@ class Portfolio extends React.Component {
       <div className="wrapper">
         <Conversation responseArray={this.props.responseArray} />
         {this.renderEntry()}
-        {this.props.speechRecActive ? null : this.renderInputSubtitle()}
+        {this.renderInputSubtitle()}
       </div>
       {this.props.speechRecActive ? null : this.renderSoundControl()}
     </div>
