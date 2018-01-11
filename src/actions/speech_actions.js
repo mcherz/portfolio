@@ -37,3 +37,11 @@ export const setListeningButtonDown = (listeningButtonDown) => {
     payload: listeningButtonDown
   }
 }
+
+export const SET_RECOGNIZER = "SET_RECOGNIZER"
+export const setRecognizer = (recognizer) => {
+  return {
+    type: SET_RECOGNIZER,
+    payload: recognizer
+  }
+}

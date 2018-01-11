@@ -9,6 +9,7 @@ import * as speechActions from "actions/speech_actions"
 export const speechInitialState = {
   speechSynthActive: false,
   speechRecActive: false,
+  recognizer: null,
 
   listening: false,
   listeningTimeout: null,
@@ -27,6 +28,8 @@ function speech(state = speechInitialState, action){
       return dotProp.set(state, "listeningTimeout", action.payload)
     case speechActions.SET_LISTENING_BUTTON_DOWN:
       return dotProp.set(state, "listeningButtonDown", action.payload)
+    case speechActions.SET_RECOGNIZER:
+      return dotProp.set(state, "recognizer", action.payload)
     default:
       return state
   }

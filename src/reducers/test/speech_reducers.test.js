@@ -84,4 +84,19 @@ describe("Speech Reducer tests", () => {
       }
     )
   })
+
+  it("should set the recognizer into state", () => {
+    expect(
+      reducer({
+        recognizer: null
+      }, {
+        type: types.SET_RECOGNIZER,
+        payload: {wild: "class instance appears"}
+      })
+      ).toEqual(
+      {
+        recognizer: {wild: "class instance appears"}
+      }
+    )
+  })
 })

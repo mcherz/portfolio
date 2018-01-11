@@ -45,8 +45,17 @@ class Portfolio extends React.Component {
   }
 
   handleTheAwesomeWay = () => {
-    this.props.setSpeechRecActive(true)
-    this.props.setSpeechSynthActive(true)
+    navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+      .then((stream) => {
+        const track = stream.getTracks()[0]  // if only one media track
+        track.stop()
+        
+        this.props.setSpeechRecActive(true)
+        this.props.setSpeechSynthActive(true)
+      })
+      .catch(() => {
+        //oh noes
+      })
   }
 
   renderEntry = () => {

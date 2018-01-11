@@ -46,4 +46,13 @@ describe("Speech Actions", () => {
     }
     expect(actions.setListeningButtonDown(down)).toEqual(expectedAction)
   })
+
+  it("should create an action to set the recognizer.", () => {
+    const recognizer = {wild: "class instance"}
+    const expectedAction = {
+      type: actions.SET_RECOGNIZER,
+      payload: recognizer
+    }
+    expect(actions.setRecognizer(recognizer)).toEqual(expectedAction)
+  })
 })

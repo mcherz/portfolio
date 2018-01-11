@@ -1,6 +1,6 @@
 import constants from "helpers/constants"
 
-import { setListening, setListeningTimeout, setListeningButtonDown } from "actions/speech_actions"
+import { setListening, setListeningTimeout, setListeningButtonDown, setRecognizer } from "actions/speech_actions"
 
 import endListening from "actions/end_listening"
 
@@ -12,6 +12,13 @@ const startListening = () => (dispatch, getState) => {
     dispatch(setListeningTimeout(setTimeout(() => {
       dispatch(endListening())
     }, constants.LISTENING_TIMEOUT)))
+
+    let rec = new webkitSpeechRecognition()
+    rec.lang = "en-US"
+    rec.interimResults = false
+    rec.maxAlternatives = 5
+    rec.start()
+    dispatch(setRecognizer(rec))
   }
 }
 
