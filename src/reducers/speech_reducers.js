@@ -22,6 +22,8 @@ function speech(state = speechInitialState, action){
       return dotProp.set(state, "speechSynthActive", action.payload)
     case speechActions.SET_SPEECH_REC_ACTIVE:
       return dotProp.set(state, "speechRecActive", action.payload)
+    case speechActions.SET_MODAL_OPEN:
+      return dotProp.set(state, "modalOpen", action.payload)
     case speechActions.SET_LISTENING:
       return dotProp.set(state, "listening", action.payload)
     case speechActions.SET_LISTENING_TIMEOUT:

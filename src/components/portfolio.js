@@ -45,6 +45,7 @@ class Portfolio extends React.Component {
   }
 
   handleTheAwesomeWay = () => {
+    this.props.setModalOpen(false)
     navigator.mediaDevices.getUserMedia({ audio: true, video: false })
       .then((stream) => {
         const track = stream.getTracks()[0]  // if only one media track
@@ -76,7 +77,7 @@ class Portfolio extends React.Component {
       if (this.props.speechRecActive) {
         return <div className="input-subtitle">Or press and hold the spacebar</div>
       } else {
-        return <div className="input-subtitle">Want to try this <a onClick={this.handleTheAwesomeWay} >the awesome way</a>?</div>
+        return <div className="input-subtitle">Want to try this <a onClick={() => {this.props.setModalOpen(true)}} >the awesome way</a>?</div>
       }
     } else {
       return <div className="input-subtitle">Protip: the coolest part only works in <a href="https://www.google.com/chrome/browser/" target="_blank" rel="noreferrer noopener" >Chrome</a>.</div>
@@ -89,6 +90,19 @@ class Portfolio extends React.Component {
     </div>
   }
 
+  renderTakeover = () => {
+    return <div className="takeover">
+      <div className="modal">
+        <div className="modal-text">Spoiler alert: the awesome way is voice recognition.</div>
+        <div className="modal-text">In just a sec, the browser will ask you to allow microphone access (because otherwise there's nothing to recognize.)</div>
+        <div className="modal-buttons">
+          <button className="modal-confirm" onClick={this.handleTheAwesomeWay}>Let's do it!</button>
+          <button className="modal-cancel" onClick={() => {this.props.setModalOpen(false)}}>Creepy, no.</button>  
+        </div>
+      </div>
+    </div>
+  }
+
   render = () => {
     return <div className="portfolio" style={{height: this.props.pageHeight}}>
       <div className="wrapper">
@@ -97,6 +111,7 @@ class Portfolio extends React.Component {
         {this.renderInputSubtitle()}
       </div>
       {this.props.speechRecActive ? null : this.renderSoundControl()}
+      {this.props.modalOpen ? this.renderTakeover() : null}
     </div>
   }
 }

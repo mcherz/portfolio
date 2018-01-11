@@ -40,6 +40,21 @@ describe("Speech Reducer tests", () => {
     )
   })
 
+  it("should set the microphone modal open state", () => {
+    expect(
+      reducer({
+        modalOpen: true
+      }, {
+        type: types.SET_MODAL_OPEN,
+        payload: false
+      })
+      ).toEqual(
+      {
+        modalOpen: false
+      }
+    )
+  })
+
   it("should set the listening state", () => {
     expect(
       reducer({

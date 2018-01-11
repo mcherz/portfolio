@@ -14,6 +14,14 @@ export const setSpeechRecActive = (speechRecActive) => {
   }
 }
 
+export const SET_MODAL_OPEN = "SET_MODAL_OPEN"
+export const setModalOpen = (open) => {
+  return {
+    type: SET_MODAL_OPEN,
+    payload: open
+  }
+}
+
 export const SET_LISTENING = "SET_LISTENING"
 export const setListening = (listening) => {
   return {

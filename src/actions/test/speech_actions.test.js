@@ -20,6 +20,15 @@ describe("Speech Actions", () => {
     expect(actions.setSpeechRecActive(active)).toEqual(expectedAction)
   })
 
+  it("should create an action to set the microphone confirm modal state.", () => {
+    const open = true
+    const expectedAction = {
+      type: actions.SET_MODAL_OPEN,
+      payload: open
+    }
+    expect(actions.setModalOpen(open)).toEqual(expectedAction)
+  })
+
   it("should create an action to set the client listening state.", () => {
     const listening = true
     const expectedAction = {
