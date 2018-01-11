@@ -9,9 +9,9 @@ const startListening = () => (dispatch, getState) => {
   if (!state.speech.listeningButtonDown) {
     dispatch(setListeningButtonDown(true))
     dispatch(setListening(true))
-    dispatch(setListeningTimeout(() => dispatch => {
+    dispatch(setListeningTimeout(setTimeout(() => {
       dispatch(endListening())
-    }, constants.LISTENING_TIMEOUT))
+    }, constants.LISTENING_TIMEOUT)))
   }
 }
 
