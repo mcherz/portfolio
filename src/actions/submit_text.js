@@ -3,6 +3,8 @@ import getAppResponse from "helpers/get_app_response"
 
 import { addResponse, setButtonActive } from "actions/response_actions"
 
+import startListening from "actions/start_listening"
+
 const submitText = (text) => (dispatch, getState) => {
   const state = getState()
   if (state.response.buttonActive) {
@@ -13,6 +15,11 @@ const submitText = (text) => (dispatch, getState) => {
       dispatch(addResponse(constants.APP_RESPONSE, response.jsx))
       if (state.speech.speechSynthActive) {
         let utterThis = new SpeechSynthesisUtterance(response.plainText)
+        if (state.speech.speechRecActive) {
+          utterThis.onend = () => {
+            dispatch(startListening())
+          }
+        }
         speechSynthesis.speak(utterThis)
       }
       dispatch(setButtonActive(true))

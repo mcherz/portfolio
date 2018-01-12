@@ -11,6 +11,13 @@ describe("Response Actions", () => {
     expect(actions.addResponse("app", "wat")).toEqual(expectedAction)
   })
 
+  it("should create an action to clear the response array.", () => {
+    const expectedAction = {
+      type: actions.CLEAR_RESPONSES,
+    }
+    expect(actions.clearResponses()).toEqual(expectedAction)
+  })
+
   it("should create an action to set the button state.", () => {
     const active = true
     const expectedAction = {

@@ -6,6 +6,13 @@ export const addResponse = (party, text) => {
   }
 }
 
+export const CLEAR_RESPONSES = "CLEAR_RESPONSES"
+export const clearResponses = () => {
+  return {
+    type: CLEAR_RESPONSES
+  }
+}
+
 export const SET_BUTTON_ACTIVE = "SET_BUTTON_ACTIVE"
 export const setButtonActive = (active) => {
   return {

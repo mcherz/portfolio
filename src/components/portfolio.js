@@ -51,8 +51,8 @@ class Portfolio extends React.Component {
         const track = stream.getTracks()[0]  // if only one media track
         track.stop()
         
-        this.props.setSpeechRecActive(true)
-        this.props.setSpeechSynthActive(true)
+        this.props.startSpeechRecognition()
+
       })
       .catch(() => {
         //oh noes
@@ -61,9 +61,7 @@ class Portfolio extends React.Component {
 
   renderEntry = () => {
     if (this.props.speechRecActive) {
-      return <div className="entry" >
-        <div className={`hold-to-talk${this.props.listening ? " active" : ""}`} onMouseDown={this.props.startListening} onMouseUp={this.props.handleListenButtonUp} onMouseLeave={this.props.handleListenButtonUp}>Press and hold to speak</div>
-      </div>
+      return null
     } else {
       return <div className="entry">
         <input ref={(input) => {this.typeEntry = input}} className="type-entry" type="text" onKeyDown={this.handleInputKeydown} />
@@ -75,7 +73,7 @@ class Portfolio extends React.Component {
   renderInputSubtitle = () => {
     if (bowser.name === "Chrome") {
       if (this.props.speechRecActive) {
-        return <div className="input-subtitle">Or press and hold the spacebar</div>
+        return null
       } else {
         return <div className="input-subtitle">Want to try this <a onClick={() => {this.props.setModalOpen(true)}} >the awesome way</a>?</div>
       }

@@ -21,6 +21,8 @@ function response(state = responseInitialState, action){
         returnArray.shift()
       }
       return dotProp.set(state, "responseArray", returnArray)
+    case responseActions.CLEAR_RESPONSES:
+      return dotProp.set(state, "responseArray", [])
     case responseActions.SET_BUTTON_ACTIVE:
       return dotProp.set(state, "buttonActive", action.payload)
     default:

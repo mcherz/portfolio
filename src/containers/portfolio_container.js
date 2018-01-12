@@ -6,7 +6,7 @@ import { setModalOpen, setSpeechRecActive, setSpeechSynthActive } from "actions/
 
 import handleListenButtonUp from "actions/handle_listen_button_up"
 import submitText from "actions/submit_text"
-import startListening from "actions/start_listening"
+import startSpeechRecognition from "actions/start_speech_recognition"
 
 const mapStateToProps = (state/*, ownProps*/) => {
   return {
@@ -32,11 +32,11 @@ const mapDispatchToProps = (dispatch/*, ownProps*/) => {
     setSpeechSynthActive(active){
       dispatch(setSpeechSynthActive(active))
     },
-    startListening(){
-      dispatch(startListening())
+    startSpeechRecognition(){
+      dispatch(startSpeechRecognition())
     },
     submitText(text){
-      dispatch(submitText( text))
+      dispatch(submitText(text))
     }
   }
 }

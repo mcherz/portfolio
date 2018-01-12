@@ -3,22 +3,27 @@ import constants from "helpers/constants"
 import { setListening, setListeningTimeout, setListeningButtonDown, setRecognizer } from "actions/speech_actions"
 
 import endListening from "actions/end_listening"
+import submitText from "actions/submit_text"
 
 const startListening = () => (dispatch, getState) => {
   const state = getState()
-  if (!state.speech.listeningButtonDown) {
-    dispatch(setListeningButtonDown(true))
-    dispatch(setListening(true))
-    dispatch(setListeningTimeout(setTimeout(() => {
-      dispatch(endListening())
-    }, constants.LISTENING_TIMEOUT)))
 
-    let rec = new webkitSpeechRecognition()
-    rec.lang = "en-US"
-    rec.interimResults = false
-    rec.maxAlternatives = 5
-    rec.start()
-    dispatch(setRecognizer(rec))
+  let rec = new webkitSpeechRecognition()
+  rec.lang = "en-US"
+  rec.interimResults = false
+  rec.maxAlternatives = 5
+  rec.start()
+
+  let loopListen = true
+  rec.onresult = (event) => {
+    dispatch(submitText(event.results[0][0].transcript))
+    loopListen = false
+  }
+
+  rec.onend = () => {
+    if (loopListen) {
+      rec.start()
+    }
   }
 }
 
