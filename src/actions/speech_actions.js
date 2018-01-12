@@ -22,30 +22,6 @@ export const setModalOpen = (open) => {
   }
 }
 
-export const SET_LISTENING = "SET_LISTENING"
-export const setListening = (listening) => {
-  return {
-    type: SET_LISTENING,
-    payload: listening
-  }
-}
-
-export const SET_LISTENING_TIMEOUT = "SET_LISTENING_TIMEOUT"
-export const setListeningTimeout = (listeningTimeout) => {
-  return {
-    type: SET_LISTENING_TIMEOUT,
-    payload: listeningTimeout
-  }
-}
-
-export const SET_LISTENING_BUTTON_DOWN = "SET_LISTENING_BUTTON_DOWN"
-export const setListeningButtonDown = (listeningButtonDown) => {
-  return {
-    type: SET_LISTENING_BUTTON_DOWN,
-    payload: listeningButtonDown
-  }
-}
-
 export const SET_RECOGNIZER = "SET_RECOGNIZER"
 export const setRecognizer = (recognizer) => {
   return {

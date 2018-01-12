@@ -4,13 +4,11 @@ import Portfolio from "components/portfolio"
 
 import { setModalOpen, setSpeechRecActive, setSpeechSynthActive } from "actions/speech_actions"
 
-import handleListenButtonUp from "actions/handle_listen_button_up"
 import submitText from "actions/submit_text"
 import startSpeechRecognition from "actions/start_speech_recognition"
 
 const mapStateToProps = (state/*, ownProps*/) => {
   return {
-    listening: state.speech.listening,
     modalOpen: state.speech.modalOpen,
     responseArray: state.response.responseArray,
     speechRecActive: state.speech.speechRecActive,
@@ -20,9 +18,6 @@ const mapStateToProps = (state/*, ownProps*/) => {
 
 const mapDispatchToProps = (dispatch/*, ownProps*/) => {
   return {
-    handleListenButtonUp(){
-      dispatch(handleListenButtonUp())
-    },
     setModalOpen(open){
       dispatch(setModalOpen(open))
     },

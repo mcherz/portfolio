@@ -10,10 +10,7 @@ export const speechInitialState = {
   speechSynthActive: false,
   speechRecActive: false,
   recognizer: null,
-
-  listening: false,
-  listeningTimeout: null,
-  listeningButtonDown: false
+  modalOpen: false
 }
 
 function speech(state = speechInitialState, action){
@@ -24,12 +21,6 @@ function speech(state = speechInitialState, action){
       return dotProp.set(state, "speechRecActive", action.payload)
     case speechActions.SET_MODAL_OPEN:
       return dotProp.set(state, "modalOpen", action.payload)
-    case speechActions.SET_LISTENING:
-      return dotProp.set(state, "listening", action.payload)
-    case speechActions.SET_LISTENING_TIMEOUT:
-      return dotProp.set(state, "listeningTimeout", action.payload)
-    case speechActions.SET_LISTENING_BUTTON_DOWN:
-      return dotProp.set(state, "listeningButtonDown", action.payload)
     case speechActions.SET_RECOGNIZER:
       return dotProp.set(state, "recognizer", action.payload)
     default:

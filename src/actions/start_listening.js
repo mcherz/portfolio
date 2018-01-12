@@ -1,8 +1,5 @@
 import constants from "helpers/constants"
 
-import { setListening, setListeningTimeout, setListeningButtonDown, setRecognizer } from "actions/speech_actions"
-
-import endListening from "actions/end_listening"
 import submitText from "actions/submit_text"
 
 const startListening = () => (dispatch, getState) => {

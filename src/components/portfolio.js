@@ -19,18 +19,6 @@ class Portfolio extends React.Component {
     window.removeEventListener("keyup", this.handleWindowKeyUp)
   }
 
-  handleWindowKeyDown = (e) => {
-    if (e.keyCode === 32) {
-      this.props.startListening()
-    }
-  }
-
-  handleWindowKeyUp = (e) => {
-    if (e.keyCode === 32) {
-      this.props.handleListenButtonUp()
-    }
-  }
-
   handleButtonClick = () => {
     this.props.submitText(this.typeEntry.value)
     this.typeEntry.value = ""
