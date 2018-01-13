@@ -31,15 +31,5 @@ module.exports = {
       path.resolve("./node_modules")
     ]
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, "dist")
-  },
-  plugins: [
-    new UglifyJsPlugin({
-      sourceMap: true
-    }),
-    new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify("production")
-    }),
-  ]
+  plugins: []
 }
