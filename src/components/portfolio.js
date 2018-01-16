@@ -7,21 +7,11 @@ import { Volume2, VolumeX } from "icons/volume"
 import constants from "helpers/constants"
 
 class Portfolio extends React.Component {
-  componentWillReceiveProps = (nextProps) => {
-    if (nextProps.speechRecActive && !this.props.speechRecActive) {
-      window.addEventListener("keydown", this.handleWindowKeyDown)
-      window.addEventListener("keyup", this.handleWindowKeyUp)
-    }
-  }
-
-  componentWillUnmount = () => {
-    window.removeEventListener("keydown", this.handleWindowKeyDown)
-    window.removeEventListener("keyup", this.handleWindowKeyUp)
-  }
-
   handleButtonClick = () => {
-    this.props.submitText(this.typeEntry.value)
-    this.typeEntry.value = ""
+    if (this.typeEntry.value.trim().length > 0) {
+      this.props.submitText(this.typeEntry.value)
+      this.typeEntry.value = ""
+    }
   }
 
   handleInputKeydown = (e) => {
@@ -59,7 +49,7 @@ class Portfolio extends React.Component {
   }
 
   renderInputSubtitle = () => {
-    if (bowser.name === "Chrome") {
+    if (bowser.name === "Chrome" && bowser.osname !== "ios") {
       if (this.props.speechRecActive) {
         return null
       } else {
