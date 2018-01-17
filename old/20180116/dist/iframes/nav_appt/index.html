@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Navigation/Appointments</title>
+    <script src="jquery-1.8.2.min.js"></script>
+    <script src="jquery-ui-1.10.1.custom.min.js"></script>
+    <script src="jquery-animate-css-rotate-scale.js"></script>
+    <script src="blur.min.js"></script>
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    
+    
+</head>
+
+<body>
+
+<div id="statusBar"><img class="statusBar" src="statusBar.png" /></div>
+<div id="site">
+    <div class="fingerTap"></div>
+	<div class="fixed">
+
+        <div class='topBar'>
+            <div class='menuIcon'></div>
+            <div class='addIcon'></div>
+            <div class='title'>May 2014</div>
+
+
+            <div class='enterAppointment hidden'>
+                <div id='textEntry' class='textEntry'></div>
+                <div class='cursor'></div>
+            </div>
+            <div class='familyDots hidden'>
+                <div class='allDotBlack'></div>
+                <div class='allDotSelected'></div>
+            </div>
+
+            <div class='backButton hidden'></div>
+
+        </div>
+
+
+
+        <div class='keyboard'></div>
+
+        <div id='to' class='textEntryDefaults hidden'>to</div>
+        <div id='from' class='textEntryDefaults hidden'>from</div>
+        <div id='trashDay' class='textEntryData hidden'>Trash Day</div>
+        <div id='monday' class='textEntrySpecial hidden'>Monday</div>
+        <div id='maySixth' class='textEntrySpecial hidden'>May 6</div>
+        <div id='sevenAM' class='textEntryData hidden'>7 am</div>
+        <div id='eightAM' class='textEntryDefaults hidden'>8 am</div>
+        <div id='on' class='textEntryDefaults hidden'>on</div>
+
+	</div>
+
+	<div class="content">
+        <img id='CalendarBG' class='imageBackground highZ' src='long_calendar.png' />
+        <div class='otherBackground hidden'></div>
+	</div>
+
+    <div class='newContent hidden'>
+        <div id='newOn' class='fillerData'>on</div>
+        <div id='for' class='fillerData'>for</div>
+        <div id='newFrom' class='fillerData'>from</div>
+        <div id='newTo' class='fillerData'>to</div>
+
+        <div id='dotMatt' class='familyDot'></div>
+        <div id='dotKate' class='familyDot'></div>
+        <div id='dotJackson' class='familyDot'></div>
+
+        <div id='nameMatt' class='name'>Matt,</div>
+        <div id='nameKate' class='name'>Kate, and</div>
+        <div id='nameJackson' class='name'>Jackson!</div>
+
+        <div id='remind' class='subData'>Cozi will remind Matt and Kate <span class='linkage'>1 hour</span> beforehand.</div>
+
+        <div class='bottomArea'>
+            <div id='location' class='bottomAreaItem'>add a location</div>
+            <div id='repeat' class='bottomAreaItem'>make recurring</div>
+            <div id='change' class='bottomAreaItem'>add change notifications</div>
+            <div id='note' class='bottomAreaItem'>add a note</div>
+            <div id='delete' class='bottomAreaItem'>delete this appointment</div>
+            <div class='bottomAreaIcons'>
+                <img src="bottomIcons.png" style='width: 22px; height: 183px' />
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    
+
+</div>
+
+<div class="secret"></div>
+
+</body>
+</html>

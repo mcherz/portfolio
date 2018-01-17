@@ -33,12 +33,12 @@ class Section extends React.Component {
   renderAsset = (indexString) => {
     const asset = this.props.section.assets[parseInt(indexString)];
     switch (asset.type) {
-      case "IFRAME":
-        return <IFrame iFrame={constants.iFrames[asset.key]} />;
-      case "IMAGE":
-        return <img className="image-default" src={asset.src} />;
-      case "VIDEO":
-        return <video src={asset.src} controls width={this.getVideoWidth()} />;
+    case "IFRAME":
+      return <IFrame iFrame={constants.iFrames[asset.key]} />;
+    case "IMAGE":
+      return <img className="image-default" src={asset.src} />;
+    case "VIDEO":
+      return <video src={asset.src} controls width={this.getVideoWidth()} />;
     }
   }
 

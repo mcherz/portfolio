@@ -1,0 +1,72 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "portfolio-package-json",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "jest",
+    "lint-staged": "lint-staged"
+  },
+  "jest": {
+    "modulePaths": [
+      "src"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/helpers/raf_shim.js",
+      "<rootDir>/src/helpers/enzyme_env_setup.js"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "jest --bail --findRelatedTests"
+    ]
+  },
+  "precommit": "lint-staged",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcherz/portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcherz/portfolio/issues"
+  },
+  "homepage": "https://github.com/mcherz/portfolio#readme",
+  "dependencies": {
+    "dot-prop-immutable": "^1.4.0",
+    "react": "=16.2.0",
+    "react-dom": "=16.2.0",
+    "react-redux": "=5.0.6",
+    "redux": "=3.7.2",
+    "redux-thunk": "=2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.1.2",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^3.18.0",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-react": "^6.10.3",
+    "jest": "^20.0.4",
+    "lint-staged": "^3.4.1",
+    "pre-commit": "^1.2.2",
+    "react-test-renderer": "=16.2.0",
+    "style-loader": "^0.19.0",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  }
+}
