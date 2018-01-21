@@ -1,7 +1,7 @@
 import React from "react"; //eslint-disable-line
 import { shallow } from "enzyme";
 
-import Portfolio from "components/portfolio";
+import Portfolio from "../portfolio";
 
 import AboutMe from "components/display_components/about_me";
 import Cover from "components/display_components/cover";

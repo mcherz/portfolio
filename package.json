@@ -8,11 +8,12 @@
     "start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
     "test": "jest",
     "precommit": "lint-staged",
-    "heroku-postbuild": "npm run webpack --config webpack.prod.js --colors"
+    "heroku-postbuild": "npm run webpack --config webpack.prod.js --colors; npm run webpack --config webpack.server.js --colors"
   },
   "jest": {
     "modulePaths": [
-      "src"
+      "src",
+      "old/20180116/src"
     ],
     "setupFiles": [
       "<rootDir>/src/helpers/raf_shim.js",
@@ -38,9 +39,7 @@
   "dependencies": {
     "bowser": "^1.9.1",
     "dot-prop-immutable": "^1.4.0",
-    "express": "^4.16.2",
     "elizabot": "^0.0.2",
-    "font-awesome": "^4.7.0",
     "react": "=16.2.0",
     "react-dom": "=16.2.0",
     "react-redux": "=5.0.6",
@@ -65,6 +64,8 @@
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-react": "^6.10.3",
+    "express": "^4.16.2",
+    "extract-text-webpack-plugin": "^3.0.2",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "lint-staged": "^3.4.1",
@@ -73,6 +74,7 @@
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
+    "webpack-node-externals": "^1.6.0",
     "webpack-merge": "^4.1.1"
   }
 }

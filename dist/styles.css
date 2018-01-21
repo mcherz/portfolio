@@ -1,0 +1,167 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,400i,900);body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #7788dd;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+button {
+  height: 30px;
+  text-align: center;
+  padding: 1px;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: 200;
+  border: none;
+}
+
+.portfolio {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 80%;
+  max-width: 600px;
+}
+
+.conversation {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.query {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  color: #6677bb;
+  margin: 8px 0;
+}
+
+.response {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 200;
+  color: #666666;
+}
+
+.entry {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.type-entry {
+  flex: 1 1;
+  font-size: 16px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+
+.type-entry:focus {
+  outline-offset: -2px;
+  outline: #dddddd auto 5px;
+}
+
+.type-commit {
+  flex: 0 0 100px;
+  margin-left: 20px;
+  background-color: #6677bb;
+  color: #ffffff;
+}
+
+.type-commit:hover {
+  background-color: #193399;
+}
+
+.type-commit:focus {
+  outline-offset: -2px;
+  outline: #dddddd auto 5px;
+}
+
+.input-subtitle {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 17px;
+  font-weight: 200;
+}
+
+.feather {
+  stroke: #bbbbbb
+}
+
+.feather:hover {
+  stroke: #666666
+}
+
+.synth-control {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  bottom: 0;
+  right: 0;
+}
+
+.takeover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,.4);
+  z-index: 2;
+}
+
+.modal {
+  width: 50%;
+  min-width: 220px;
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+.modal-text {
+  margin-bottom: 10px;
+  color: #666666;
+  font-size: 20px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.modal-confirm {
+  flex: 0 0 120px;
+  height: 40px;
+  background-color: #6677bb;
+  color: #ffffff;
+}
+
+.modal-cancel {
+  flex: 0 0 120px;
+  height: 40px;
+  margin-left: 20px;
+  background-color: #dddddd;
+  color: #808080;
+}
