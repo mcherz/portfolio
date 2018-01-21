@@ -7,6 +7,12 @@ import { Volume2, VolumeX } from "icons/volume"
 import constants from "helpers/constants"
 
 class Portfolio extends React.Component {
+  componentDidMount = () => {
+    if (this.typeEntry) {
+      this.typeEntry.focus()
+    }
+  }
+
   handleButtonClick = () => {
     if (this.typeEntry.value.trim().length > 0) {
       this.props.submitText(this.typeEntry.value)

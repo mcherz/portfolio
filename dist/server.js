@@ -209,7 +209,7 @@ var _constants = __webpack_require__(1);
 
 var _constants2 = _interopRequireDefault(_constants);
 
-var _get_app_response = __webpack_require__(24);
+var _get_app_response = __webpack_require__(25);
 
 var _get_app_response2 = _interopRequireDefault(_get_app_response);
 
@@ -313,11 +313,15 @@ var _express = __webpack_require__(12);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _html_template = __webpack_require__(13);
+var _herokuSslRedirect = __webpack_require__(13);
+
+var _herokuSslRedirect2 = _interopRequireDefault(_herokuSslRedirect);
+
+var _html_template = __webpack_require__(14);
 
 var _html_template2 = _interopRequireDefault(_html_template);
 
-var _portfolio_redux_root = __webpack_require__(14);
+var _portfolio_redux_root = __webpack_require__(15);
 
 var _portfolio_redux_root2 = _interopRequireDefault(_portfolio_redux_root);
 
@@ -327,14 +331,7 @@ var server = (0, _express2.default)();
 
 var port = process.env.PORT || 8080;
 
-server.use(function (req, res, next) {
-  if (req.header["x-forwarded-proto"] === "http") {
-    res.redirect("https://" + req.header("host") + req.url);
-  } else {
-    next();
-  }
-});
-
+server.use((0, _herokuSslRedirect2.default)());
 server.use(_express2.default.static("dist"));
 
 server.get("/", function (req, res) {
@@ -342,7 +339,7 @@ server.get("/", function (req, res) {
 });
 
 server.listen(port, function () {
-  console.log("listening on port " + port + "...");
+  console.log("listening on port " + port + "..."); //eslint-disable-line
 });
 
 /***/ }),
@@ -359,6 +356,12 @@ module.exports = require("express");
 
 /***/ }),
 /* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("heroku-ssl-redirect");
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -405,7 +408,7 @@ var htmlTemplate = function htmlTemplate(html) {
 exports.default = htmlTemplate;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -427,15 +430,15 @@ var _reactRedux = __webpack_require__(5);
 
 var _redux = __webpack_require__(6);
 
-var _reduxThunk = __webpack_require__(15);
+var _reduxThunk = __webpack_require__(16);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _root_reducers = __webpack_require__(16);
+var _root_reducers = __webpack_require__(17);
 
 var _root_reducers2 = _interopRequireDefault(_root_reducers);
 
-var _portfolio_container = __webpack_require__(19);
+var _portfolio_container = __webpack_require__(20);
 
 var _portfolio_container2 = _interopRequireDefault(_portfolio_container);
 
@@ -490,13 +493,13 @@ var PortfolioReduxRoot = function (_React$Component) {
 exports.default = PortfolioReduxRoot;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -508,11 +511,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(6);
 
-var _response_reducers = __webpack_require__(17);
+var _response_reducers = __webpack_require__(18);
 
 var _response_reducers2 = _interopRequireDefault(_response_reducers);
 
-var _speech_reducers = __webpack_require__(18);
+var _speech_reducers = __webpack_require__(19);
 
 var _speech_reducers2 = _interopRequireDefault(_speech_reducers);
 
@@ -526,7 +529,7 @@ var rootReducers = (0, _redux.combineReducers)({
 exports.default = rootReducers;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -592,7 +595,7 @@ function response() {
 exports.default = response;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -654,7 +657,7 @@ function speech() {
 exports.default = speech;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -666,7 +669,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(5);
 
-var _portfolio = __webpack_require__(20);
+var _portfolio = __webpack_require__(21);
 
 var _portfolio2 = _interopRequireDefault(_portfolio);
 
@@ -676,7 +679,7 @@ var _submit_text = __webpack_require__(8);
 
 var _submit_text2 = _interopRequireDefault(_submit_text);
 
-var _start_speech_recognition = __webpack_require__(26);
+var _start_speech_recognition = __webpack_require__(27);
 
 var _start_speech_recognition2 = _interopRequireDefault(_start_speech_recognition);
 
@@ -716,7 +719,7 @@ var PortfolioContainer = (0, _reactRedux.connect)(mapStateToProps, mapDispatchTo
 exports.default = PortfolioContainer;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -730,15 +733,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bowser = __webpack_require__(21);
+var _bowser = __webpack_require__(22);
 
 var _bowser2 = _interopRequireDefault(_bowser);
 
-var _conversation = __webpack_require__(22);
+var _conversation = __webpack_require__(23);
 
 var _conversation2 = _interopRequireDefault(_conversation);
 
-var _volume = __webpack_require__(23);
+var _volume = __webpack_require__(24);
 
 var _constants = __webpack_require__(1);
 
@@ -766,7 +769,9 @@ var Portfolio = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Portfolio.__proto__ || Object.getPrototypeOf(Portfolio)).call.apply(_ref, [this].concat(args))), _this), _this.handleButtonClick = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Portfolio.__proto__ || Object.getPrototypeOf(Portfolio)).call.apply(_ref, [this].concat(args))), _this), _this.componentDidMount = function () {
+      _this.typeEntry.focus();
+    }, _this.handleButtonClick = function () {
       if (_this.typeEntry.value.trim().length > 0) {
         _this.props.submitText(_this.typeEntry.value);
         _this.typeEntry.value = "";
@@ -902,13 +907,13 @@ var Portfolio = function (_React$Component) {
 exports.default = Portfolio;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("bowser");
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -974,7 +979,7 @@ var Conversation = function (_React$Component) {
 exports.default = Conversation;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1008,7 +1013,7 @@ var VolumeX = exports.VolumeX = _react2.default.createElement(
 );
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1026,7 +1031,7 @@ var _elizabot = __webpack_require__(3);
 
 var _elizabot2 = _interopRequireDefault(_elizabot);
 
-var _magic_responses = __webpack_require__(25);
+var _magic_responses = __webpack_require__(26);
 
 var _magic_responses2 = _interopRequireDefault(_magic_responses);
 
@@ -1074,7 +1079,7 @@ var getAppResponse = function getAppResponse(inputString) {
 exports.default = getAppResponse;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1202,7 +1207,7 @@ var magic = {
 exports.default = magic;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
