@@ -835,7 +835,7 @@ var Portfolio = function (_React$Component) {
         } else {
           return _react2.default.createElement(
             "div",
-            { className: "input-subtitle" },
+            { id: "awesome", className: "input-subtitle" },
             "Want to try this ",
             _react2.default.createElement(
               "a",
@@ -847,10 +847,10 @@ var Portfolio = function (_React$Component) {
             "?"
           );
         }
-      } else {
+      } else if (!_bowser2.default.x) {
         return _react2.default.createElement(
           "div",
-          { className: "input-subtitle" },
+          { id: "chrome", className: "input-subtitle" },
           "Protip: the coolest part only works in ",
           _react2.default.createElement(
             "a",
@@ -859,6 +859,8 @@ var Portfolio = function (_React$Component) {
           ),
           "."
         );
+      } else {
+        return null;
       }
     }, _this.renderSoundControl = function () {
       return _react2.default.createElement(
@@ -1192,6 +1194,14 @@ var getAppResponse = function getAppResponse(inputString, state, dispatch) {
         "If you're annoyed with Eliza's responses, you can ask me for contact info (or go looking for Easter eggs...)"
       ),
       plainText: "If you're annoyed with Eliza's responses, you can ask me for contact info (or go looking for Easter eggs...)"
+    },
+    easter_eggs: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "I can't just TELL you what they all are; that wouldn't be fun. (But the 'Alexa' one is probably my favorite.)"
+      ),
+      plainText: "I can't just TELL you what they all are; that wouldn't be fun. (But the 'Alexa' one is probably my favorite)."
     }
   };
 
@@ -1226,6 +1236,8 @@ var getAppResponse = function getAppResponse(inputString, state, dispatch) {
       return magic.email;
     case lowString.match("phone") !== null:
       return magic.phone;
+    case lowString.match("easter egg") !== null:
+      return magic.easter_eggs;
     default:
       var eliza = new _elizabot2.default();
       var returnString = eliza.transform(inputString);

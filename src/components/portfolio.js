@@ -59,10 +59,12 @@ class Portfolio extends React.Component {
       if (this.props.speechRecActive) {
         return null
       } else {
-        return <div className="input-subtitle">Want to try this <a onClick={() => {this.props.setModalOpen(true)}} >the awesome way</a>?</div>
+        return <div id="awesome" className="input-subtitle">Want to try this <a onClick={() => {this.props.setModalOpen(true)}} >the awesome way</a>?</div>
       }
+    } else if (!bowser.x) {
+      return <div id="chrome" className="input-subtitle">Protip: the coolest part only works in <a href="https://www.google.com/chrome/browser/" target="_blank" rel="noreferrer noopener" >Chrome</a>.</div>
     } else {
-      return <div className="input-subtitle">Protip: the coolest part only works in <a href="https://www.google.com/chrome/browser/" target="_blank" rel="noreferrer noopener" >Chrome</a>.</div>
+      return null
     }
   }
 

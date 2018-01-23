@@ -61,6 +61,10 @@ const getAppResponse = (inputString, state, dispatch) => {
       jsx: <span>If you're annoyed with Eliza's responses, you can ask me for contact info (or go looking for Easter eggs...)</span>,
       plainText: "If you're annoyed with Eliza's responses, you can ask me for contact info (or go looking for Easter eggs...)"
     },
+    easter_eggs: {
+      jsx: <span>I can't just TELL you what they all are; that wouldn't be fun. (But the 'Alexa' one is probably my favorite.)</span>,
+      plainText: "I can't just TELL you what they all are; that wouldn't be fun. (But the 'Alexa' one is probably my favorite)."
+    }
   }
   
   const promptSpeech = state.response.responseCount === 2 && !state.speech.speechRecActive && bowser.name === "Chrome" && bowser.osname !== "ios"
@@ -94,6 +98,8 @@ const getAppResponse = (inputString, state, dispatch) => {
       return magic.email
     case lowString.match("phone") !== null:
       return magic.phone
+    case lowString.match("easter egg") !== null:
+      return magic.easter_eggs
     default:
       const eliza = new ElizaBot()
       const returnString = eliza.transform(inputString)
