@@ -68,4 +68,18 @@ describe("Response Reducer tests", () => {
       }
     )
   })
+
+  it("should increment the response count", () => {
+    expect(
+      reducer({
+        responseCount: 4
+      }, {
+        type: types.INCREMENT_RESPONSE_COUNT
+      })
+      ).toEqual(
+      {
+        responseCount: 5
+      }
+    )
+  })
 })

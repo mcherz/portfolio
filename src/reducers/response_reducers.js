@@ -9,7 +9,8 @@ import * as responseActions from "actions/response_actions"
 export const responseInitialState = {
   buttonActive: true,
 
-  responseArray: [{party: constants.APP_RESPONSE, text:"Hi there. Let's chat."}]
+  responseArray: [{party: constants.APP_RESPONSE, text:"Hi there. Let's chat."}],
+  responseCount: 0
 }
 
 function response(state = responseInitialState, action){
@@ -25,6 +26,8 @@ function response(state = responseInitialState, action){
       return dotProp.set(state, "responseArray", [])
     case responseActions.SET_BUTTON_ACTIVE:
       return dotProp.set(state, "buttonActive", action.payload)
+    case responseActions.INCREMENT_RESPONSE_COUNT:
+      return dotProp.set(state, "responseCount", state.responseCount + 1)
     default:
       return state
   }

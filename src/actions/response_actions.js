@@ -20,3 +20,10 @@ export const setButtonActive = (active) => {
     payload: active
   }
 }
+
+export const INCREMENT_RESPONSE_COUNT = "INCREMENT_RESPONSE_COUNT"
+export const incrementResponseCount = () => {
+  return {
+    type: INCREMENT_RESPONSE_COUNT
+  }
+}

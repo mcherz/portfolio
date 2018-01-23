@@ -26,4 +26,11 @@ describe("Response Actions", () => {
     }
     expect(actions.setButtonActive(active)).toEqual(expectedAction)
   })
+
+  it("should create an action to increment the response count.", () => {
+    const expectedAction = {
+      type: actions.INCREMENT_RESPONSE_COUNT
+    }
+    expect(actions.incrementResponseCount()).toEqual(expectedAction)
+  })
 })

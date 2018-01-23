@@ -61,7 +61,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -176,26 +176,39 @@ var setButtonActive = exports.setButtonActive = function setButtonActive(active)
   };
 };
 
+var INCREMENT_RESPONSE_COUNT = exports.INCREMENT_RESPONSE_COUNT = "INCREMENT_RESPONSE_COUNT";
+var incrementResponseCount = exports.incrementResponseCount = function incrementResponseCount() {
+  return {
+    type: INCREMENT_RESPONSE_COUNT
+  };
+};
+
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-redux");
+module.exports = require("bowser");
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux");
+module.exports = require("react-redux");
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("dot-prop-immutable");
+module.exports = require("redux");
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("dot-prop-immutable");
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -204,6 +217,14 @@ module.exports = require("dot-prop-immutable");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _bowser = __webpack_require__(5);
+
+var _bowser2 = _interopRequireDefault(_bowser);
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
 
 var _constants = __webpack_require__(1);
 
@@ -215,7 +236,9 @@ var _get_app_response2 = _interopRequireDefault(_get_app_response);
 
 var _response_actions = __webpack_require__(4);
 
-var _start_listening = __webpack_require__(9);
+var _speech_actions = __webpack_require__(2);
+
+var _start_listening = __webpack_require__(10);
 
 var _start_listening2 = _interopRequireDefault(_start_listening);
 
@@ -228,8 +251,9 @@ var submitText = function submitText(text) {
       dispatch((0, _response_actions.setButtonActive)(false));
       dispatch((0, _response_actions.addResponse)(_constants2.default.USER_QUERY, text));
       setTimeout(function () {
-        var response = (0, _get_app_response2.default)(text);
+        var response = (0, _get_app_response2.default)(text, state, dispatch);
         dispatch((0, _response_actions.addResponse)(_constants2.default.APP_RESPONSE, response.jsx));
+        dispatch((0, _response_actions.incrementResponseCount)());
         if (state.speech.speechSynthActive) {
           var utterThis = new SpeechSynthesisUtterance(response.plainText);
           if (state.speech.speechRecActive) {
@@ -248,7 +272,7 @@ var submitText = function submitText(text) {
 exports.default = submitText;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -262,7 +286,7 @@ var _constants = __webpack_require__(1);
 
 var _constants2 = _interopRequireDefault(_constants);
 
-var _submit_text = __webpack_require__(8);
+var _submit_text = __webpack_require__(9);
 
 var _submit_text2 = _interopRequireDefault(_submit_text);
 
@@ -295,7 +319,7 @@ var startListening = function startListening() {
 exports.default = startListening;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -305,23 +329,23 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(11);
+var _server = __webpack_require__(12);
 
 var _server2 = _interopRequireDefault(_server);
 
-var _express = __webpack_require__(12);
+var _express = __webpack_require__(13);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _herokuSslRedirect = __webpack_require__(13);
+var _herokuSslRedirect = __webpack_require__(14);
 
 var _herokuSslRedirect2 = _interopRequireDefault(_herokuSslRedirect);
 
-var _html_template = __webpack_require__(14);
+var _html_template = __webpack_require__(15);
 
 var _html_template2 = _interopRequireDefault(_html_template);
 
-var _portfolio_redux_root = __webpack_require__(15);
+var _portfolio_redux_root = __webpack_require__(16);
 
 var _portfolio_redux_root2 = _interopRequireDefault(_portfolio_redux_root);
 
@@ -343,25 +367,25 @@ server.listen(port, function () {
 });
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("heroku-ssl-redirect");
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -408,7 +432,7 @@ var htmlTemplate = function htmlTemplate(html) {
 exports.default = htmlTemplate;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -426,19 +450,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(5);
+var _reactRedux = __webpack_require__(6);
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
-var _reduxThunk = __webpack_require__(16);
+var _reduxThunk = __webpack_require__(17);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _root_reducers = __webpack_require__(17);
+var _root_reducers = __webpack_require__(18);
 
 var _root_reducers2 = _interopRequireDefault(_root_reducers);
 
-var _portfolio_container = __webpack_require__(20);
+var _portfolio_container = __webpack_require__(21);
 
 var _portfolio_container2 = _interopRequireDefault(_portfolio_container);
 
@@ -493,13 +517,13 @@ var PortfolioReduxRoot = function (_React$Component) {
 exports.default = PortfolioReduxRoot;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -509,13 +533,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(6);
+var _redux = __webpack_require__(7);
 
-var _response_reducers = __webpack_require__(18);
+var _response_reducers = __webpack_require__(19);
 
 var _response_reducers2 = _interopRequireDefault(_response_reducers);
 
-var _speech_reducers = __webpack_require__(19);
+var _speech_reducers = __webpack_require__(20);
 
 var _speech_reducers2 = _interopRequireDefault(_speech_reducers);
 
@@ -529,7 +553,7 @@ var rootReducers = (0, _redux.combineReducers)({
 exports.default = rootReducers;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -540,7 +564,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.responseInitialState = undefined;
 
-var _dotPropImmutable = __webpack_require__(7);
+var _dotPropImmutable = __webpack_require__(8);
 
 var _dotPropImmutable2 = _interopRequireDefault(_dotPropImmutable);
 
@@ -568,7 +592,8 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var responseInitialState = exports.responseInitialState = {
   buttonActive: true,
 
-  responseArray: [{ party: _constants2.default.APP_RESPONSE, text: "Hi there. Let's chat." }]
+  responseArray: [{ party: _constants2.default.APP_RESPONSE, text: "Hi there. Let's chat." }],
+  responseCount: 0
 };
 
 function response() {
@@ -587,6 +612,8 @@ function response() {
       return _dotPropImmutable2.default.set(state, "responseArray", []);
     case responseActions.SET_BUTTON_ACTIVE:
       return _dotPropImmutable2.default.set(state, "buttonActive", action.payload);
+    case responseActions.INCREMENT_RESPONSE_COUNT:
+      return _dotPropImmutable2.default.set(state, "responseCount", state.responseCount + 1);
     default:
       return state;
   }
@@ -595,7 +622,7 @@ function response() {
 exports.default = response;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -606,7 +633,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.speechInitialState = undefined;
 
-var _dotPropImmutable = __webpack_require__(7);
+var _dotPropImmutable = __webpack_require__(8);
 
 var _dotPropImmutable2 = _interopRequireDefault(_dotPropImmutable);
 
@@ -657,7 +684,7 @@ function speech() {
 exports.default = speech;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -667,19 +694,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _reactRedux = __webpack_require__(5);
+var _reactRedux = __webpack_require__(6);
 
-var _portfolio = __webpack_require__(21);
+var _portfolio = __webpack_require__(22);
 
 var _portfolio2 = _interopRequireDefault(_portfolio);
 
 var _speech_actions = __webpack_require__(2);
 
-var _submit_text = __webpack_require__(8);
+var _submit_text = __webpack_require__(9);
 
 var _submit_text2 = _interopRequireDefault(_submit_text);
 
-var _start_speech_recognition = __webpack_require__(27);
+var _start_speech_recognition = __webpack_require__(26);
 
 var _start_speech_recognition2 = _interopRequireDefault(_start_speech_recognition);
 
@@ -719,7 +746,7 @@ var PortfolioContainer = (0, _reactRedux.connect)(mapStateToProps, mapDispatchTo
 exports.default = PortfolioContainer;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -733,7 +760,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bowser = __webpack_require__(22);
+var _bowser = __webpack_require__(5);
 
 var _bowser2 = _interopRequireDefault(_bowser);
 
@@ -770,7 +797,9 @@ var Portfolio = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Portfolio.__proto__ || Object.getPrototypeOf(Portfolio)).call.apply(_ref, [this].concat(args))), _this), _this.componentDidMount = function () {
-      _this.typeEntry.focus();
+      if (_this.typeEntry) {
+        _this.typeEntry.focus();
+      }
     }, _this.handleButtonClick = function () {
       if (_this.typeEntry.value.trim().length > 0) {
         _this.props.submitText(_this.typeEntry.value);
@@ -907,12 +936,6 @@ var Portfolio = function (_React$Component) {
 exports.default = Portfolio;
 
 /***/ }),
-/* 22 */
-/***/ (function(module, exports) {
-
-module.exports = require("bowser");
-
-/***/ }),
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1031,37 +1054,188 @@ var _elizabot = __webpack_require__(3);
 
 var _elizabot2 = _interopRequireDefault(_elizabot);
 
-var _magic_responses = __webpack_require__(26);
+var _bowser = __webpack_require__(5);
 
-var _magic_responses2 = _interopRequireDefault(_magic_responses);
+var _bowser2 = _interopRequireDefault(_bowser);
+
+var _speech_actions = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//eslint-disable-line
-var getAppResponse = function getAppResponse(inputString) {
+var getAppResponse = function getAppResponse(inputString, state, dispatch) {
+  var magic = {
+    resume: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "I should probably update my resume. For now, here's my ",
+        _react2.default.createElement(
+          "a",
+          { href: "https://www.linkedin.com/in/matt-herz", target: "_blank", rel: "noreferrer noopener" },
+          "LinkedIn Profile"
+        ),
+        "."
+      ),
+      plainText: "I should probably update my resume. For now, here's my LinkedIn Profile."
+    },
+    linkedin: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "How about a link to my ",
+        _react2.default.createElement(
+          "a",
+          { href: "https://www.linkedin.com/in/matt-herz", target: "_blank", rel: "noreferrer noopener" },
+          "LinkedIn Profile"
+        ),
+        "?"
+      ),
+      plainText: "How about a link to my LinkedIn Profile?"
+    },
+    twitter: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "So much for professionalism: ",
+        _react2.default.createElement(
+          "a",
+          { href: "https://www.twitter.com/mattiherz", target: "_blank", rel: "noreferrer noopener" },
+          "@mattiherz"
+        ),
+        "."
+      ),
+      plainText: "So much for professionalism: at matty herz."
+    },
+    email: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "I'd throw in a mailto: link, but those are terrible. Copy-paste mcherz@gmail.com and have at it."
+      ),
+      plainText: "It's m c h e r z at g mail dot com. Good luck copy pasting that."
+    },
+    phone: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "I'm honestly a little gunshy about putting my cell phone number where internet weirdos can find it. Try email?"
+      ),
+      plainText: "How does that song go? Eight six seven five three oh nine? No, wait, that's Jenny, not me."
+    },
+
+    alexa: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "Alexa, order six tons of chipped beef. Alexa, confirm purchase."
+      ),
+      plainText: "Alexa, order six tons of chipped beef. Alexa, confirm purchase."
+    },
+    cortana: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "Cortana, Cortana, Cortana. I feel like I should recognize that name."
+      ),
+      plainText: "Cortana, Cortana, Cortana. I feel like I should recognize that name."
+    },
+    google: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "Ok, Google. Play Drive by the Cars."
+      ),
+      plainText: "Ok, Google. Play Drive by the Cars."
+    },
+    siri: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "Hey, Siri. How many developer years has Apple spent on you to date?"
+      ),
+      plainText: "Hey, Siri. How many developer years has Apple spent on you to date?"
+    },
+
+    eliza: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "Come now. If you could plug an open source chatbot in for free, you wouldn't write one either."
+      ),
+      plainText: "Come now. If you could plug an open source chatbot in for free, you wouldn't write one either."
+    },
+    open_source: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "Sure, take a look. It's at ",
+        _react2.default.createElement(
+          "a",
+          { href: "https://github.com/mcherz/portfolio", target: "_blank", rel: "noreferrer noopener" },
+          "https://github.com/mcherz/portfolio"
+        ),
+        "."
+      ),
+      plainText: "Sure, take a look. It's at github dot com slash m c h e r z slash portfolio."
+    },
+
+    use_speech: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "It turns out there's an even more fun ",
+        _react2.default.createElement(
+          "a",
+          { onClick: function onClick() {
+              dispatch((0, _speech_actions.setModalOpen)(true));
+            } },
+          "way to do this"
+        ),
+        "..."
+      ),
+      plainText: "It turns out there's an even more fun way to do this..."
+    },
+    prompt_magic: {
+      jsx: _react2.default.createElement(
+        "span",
+        null,
+        "If you're annoyed with Eliza's responses, you can ask me for contact info (or go looking for Easter eggs...)"
+      ),
+      plainText: "If you're annoyed with Eliza's responses, you can ask me for contact info (or go looking for Easter eggs...)"
+    }
+  };
+
+  var promptSpeech = state.response.responseCount === 2 && !state.speech.speechRecActive && _bowser2.default.name === "Chrome" && _bowser2.default.osname !== "ios";
   var lowString = inputString.toLowerCase();
   switch (true) {
+    case promptSpeech:
+      return magic.use_speech;
+    case state.response.responseCount === 12:
+      return magic.prompt_magic;
     case lowString.match("resume") !== null:
-      return _magic_responses2.default.resume;
+      return magic.resume;
     case lowString.match("linkedin") !== null:
-      return _magic_responses2.default.linkedin;
+      return magic.linkedin;
     case lowString.match("twitter") !== null:
-      return _magic_responses2.default.twitter;
+      return magic.twitter;
     case lowString.match("alexa") !== null:
-      return _magic_responses2.default.alexa;
+      return magic.alexa;
     case lowString.match("cortana") !== null:
-      return _magic_responses2.default.cortana;
+      return magic.cortana;
     case lowString.match("google") !== null:
-      return _magic_responses2.default.google;
+      return magic.google;
     case lowString.match("siri") !== null:
-      return _magic_responses2.default.siri;
+      return magic.siri;
     case lowString.match("eliza") !== null:
-      return _magic_responses2.default.eliza;
+      return magic.eliza;
     case lowString.match("open source") !== null:
     case lowString.match("source code") !== null:
-      return _magic_responses2.default.open_source;
+      return magic.open_source;
     case lowString.match("email") !== null:
-      return _magic_responses2.default.email;
+    case lowString.match("contact") !== null:
+      return magic.email;
+    case lowString.match("phone") !== null:
+      return magic.phone;
     default:
       var eliza = new _elizabot2.default();
       var returnString = eliza.transform(inputString);
@@ -1074,140 +1248,11 @@ var getAppResponse = function getAppResponse(inputString) {
         plainText: returnString
       };
   }
-};
-
+}; //eslint-disable-line
 exports.default = getAppResponse;
 
 /***/ }),
 /* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var magic = {
-  resume: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "I should probably update my resume. For now, here's my ",
-      _react2.default.createElement(
-        "a",
-        { href: "https://www.linkedin.com/in/matt-herz", target: "_blank", rel: "noreferrer noopener" },
-        "LinkedIn Profile"
-      ),
-      "."
-    ),
-    plainText: "I should probably update my resume. For now, here's my LinkedIn Profile."
-  },
-  linkedin: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "How about a link to my ",
-      _react2.default.createElement(
-        "a",
-        { href: "https://www.linkedin.com/in/matt-herz", target: "_blank", rel: "noreferrer noopener" },
-        "LinkedIn Profile"
-      ),
-      "?"
-    ),
-    plainText: "How about a link to my LinkedIn Profile?"
-  },
-  twitter: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "So much for professionalism: ",
-      _react2.default.createElement(
-        "a",
-        { href: "https://www.twitter.com/mattiherz", target: "_blank", rel: "noreferrer noopener" },
-        "@mattiherz"
-      ),
-      "."
-    ),
-    plainText: "So much for professionalism: at matty herz."
-  },
-
-  alexa: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "Alexa, order six tons of chipped beef. Alexa, confirm purchase."
-    ),
-    plainText: "Alexa, order six tons of chipped beef. Alexa, confirm purchase."
-  },
-  cortana: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "Cortana, Cortana, Cortana. I feel like I should recognize that name."
-    ),
-    plainText: "Cortana, Cortana, Cortana. I feel like I should recognize that name."
-  },
-  google: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "Ok, Google. Play Drive by the Cars."
-    ),
-    plainText: "Ok, Google. Play Drive by the Cars."
-  },
-  siri: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "Hey, Siri. How many developer years has Apple spent on you to date?"
-    ),
-    plainText: "Hey, Siri. How many developer years has Apple spent on you to date?"
-  },
-
-  eliza: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "Come now. If you could plug an open source chatbot in for free, you wouldn't write one either."
-    ),
-    plainText: "Come now. If you could plug an open source chatbot in for free, you wouldn't write one either."
-  },
-  open_source: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "Sure, take a look. It's at ",
-      _react2.default.createElement(
-        "a",
-        { href: "https://github.com/mcherz/portfolio", target: "_blank", rel: "noreferrer noopener" },
-        "https://github.com/mcherz/portfolio"
-      ),
-      "."
-    ),
-    plainText: "Sure, take a look. It's at github dot com slash m c h e r z slash portfolio."
-  },
-  email: {
-    jsx: _react2.default.createElement(
-      "span",
-      null,
-      "I'd throw in a mailto: link, but those are terrible. Copy-paste mcherz@gmail.com and have at it."
-    ),
-    plainText: "It's m c h e r z at g mail dot com. Good luck copy pasting that."
-  }
-};
-
-exports.default = magic;
-
-/***/ }),
-/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1225,7 +1270,7 @@ var _response_actions = __webpack_require__(4);
 
 var _speech_actions = __webpack_require__(2);
 
-var _start_listening = __webpack_require__(9);
+var _start_listening = __webpack_require__(10);
 
 var _start_listening2 = _interopRequireDefault(_start_listening);
 
