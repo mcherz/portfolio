@@ -187,25 +187,25 @@ var incrementResponseCount = exports.incrementResponseCount = function increment
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("bowser");
+module.exports = require("react-redux");
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-redux");
+module.exports = require("redux");
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux");
+module.exports = require("dot-prop-immutable");
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = require("dot-prop-immutable");
+module.exports = require("bowser");
 
 /***/ }),
 /* 9 */
@@ -218,14 +218,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _bowser = __webpack_require__(5);
-
-var _bowser2 = _interopRequireDefault(_bowser);
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
 var _constants = __webpack_require__(1);
 
 var _constants2 = _interopRequireDefault(_constants);
@@ -235,8 +227,6 @@ var _get_app_response = __webpack_require__(25);
 var _get_app_response2 = _interopRequireDefault(_get_app_response);
 
 var _response_actions = __webpack_require__(4);
-
-var _speech_actions = __webpack_require__(2);
 
 var _start_listening = __webpack_require__(10);
 
@@ -450,9 +440,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
-var _redux = __webpack_require__(7);
+var _redux = __webpack_require__(6);
 
 var _reduxThunk = __webpack_require__(17);
 
@@ -533,7 +523,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(7);
+var _redux = __webpack_require__(6);
 
 var _response_reducers = __webpack_require__(19);
 
@@ -564,7 +554,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.responseInitialState = undefined;
 
-var _dotPropImmutable = __webpack_require__(8);
+var _dotPropImmutable = __webpack_require__(7);
 
 var _dotPropImmutable2 = _interopRequireDefault(_dotPropImmutable);
 
@@ -633,7 +623,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.speechInitialState = undefined;
 
-var _dotPropImmutable = __webpack_require__(8);
+var _dotPropImmutable = __webpack_require__(7);
 
 var _dotPropImmutable2 = _interopRequireDefault(_dotPropImmutable);
 
@@ -694,7 +684,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(5);
 
 var _portfolio = __webpack_require__(22);
 
@@ -760,7 +750,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bowser = __webpack_require__(5);
+var _bowser = __webpack_require__(8);
 
 var _bowser2 = _interopRequireDefault(_bowser);
 
@@ -1054,7 +1044,7 @@ var _elizabot = __webpack_require__(3);
 
 var _elizabot2 = _interopRequireDefault(_elizabot);
 
-var _bowser = __webpack_require__(5);
+var _bowser = __webpack_require__(8);
 
 var _bowser2 = _interopRequireDefault(_bowser);
 

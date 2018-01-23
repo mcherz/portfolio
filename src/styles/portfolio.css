@@ -7,7 +7,7 @@ body {
 }
 
 a {
-  color: #7788dd;
+  color: #99aaff;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -58,6 +58,10 @@ button {
   font-size: 28px;
   font-weight: 200;
   color: #666666;
+}
+
+.response a {
+  text-decoration: none;
 }
 
 .entry {
