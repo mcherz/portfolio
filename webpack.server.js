@@ -1,9 +1,9 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const nodeExternals = require("webpack-node-externals")
 const path = require("path")
 
 module.exports = {
   target: "node",
+  mode: "production",
   externals: [nodeExternals()],
   entry: "./server/server_src.js",
   output: {
@@ -22,13 +22,6 @@ module.exports = {
         query: {
           presets: ["react"]
         }
-      },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
       }
     ]
   },
@@ -37,8 +30,5 @@ module.exports = {
       path.resolve("./src"),
       path.resolve("./node_modules")
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin("styles.css")
-  ]
+  }
 }

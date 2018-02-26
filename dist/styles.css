@@ -1,11 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,400i,900);body {
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,900');
+
+body {
   font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 a {
-  color: #7788dd;
+  color: #99aaff;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -56,6 +58,10 @@ button {
   font-size: 28px;
   font-weight: 200;
   color: #666666;
+}
+
+.response a {
+  text-decoration: none;
 }
 
 .entry {
