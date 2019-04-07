@@ -1,3 +1,3 @@
 global.requestAnimationFrame = (callback) => { //eslint-disable-line
-  setTimeout(callback,0);
-};
+  setTimeout(callback,0)
+}
