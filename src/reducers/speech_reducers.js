@@ -1,7 +1,5 @@
 import dotProp from "dot-prop-immutable"
 
-import constants from "helpers/constants"
-import ElizaBot from "elizabot"
 // import actions
 import * as speechActions from "actions/speech_actions"
 

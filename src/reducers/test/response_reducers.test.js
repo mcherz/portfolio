@@ -7,7 +7,7 @@ describe("Response Reducer tests", () => {
   it("should return the initial state", () => {
     expect(
       reducer(undefined, {})
-      ).toEqual(responseInitialState)
+    ).toEqual(responseInitialState)
   })
 
   it("should set the button active state", () => {
@@ -18,7 +18,7 @@ describe("Response Reducer tests", () => {
         type: types.SET_BUTTON_ACTIVE,
         payload: false
       })
-      ).toEqual(
+    ).toEqual(
       {
         buttonActive: false
       }
@@ -33,7 +33,7 @@ describe("Response Reducer tests", () => {
         type: types.ADD_RESPONSE,
         payload: "wat"
       })
-      ).toEqual(
+    ).toEqual(
       {
         responseArray: ["blah", "wat"]
       }
@@ -48,7 +48,7 @@ describe("Response Reducer tests", () => {
         type: types.ADD_RESPONSE,
         payload: 7
       })
-      ).toEqual(
+    ).toEqual(
       {
         responseArray: [2,3,4,5,6,7]
       }
@@ -62,7 +62,7 @@ describe("Response Reducer tests", () => {
       }, {
         type: types.CLEAR_RESPONSES,
       })
-      ).toEqual(
+    ).toEqual(
       {
         responseArray: []
       }
@@ -76,7 +76,7 @@ describe("Response Reducer tests", () => {
       }, {
         type: types.INCREMENT_RESPONSE_COUNT
       })
-      ).toEqual(
+    ).toEqual(
       {
         responseCount: 5
       }

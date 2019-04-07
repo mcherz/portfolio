@@ -1,11 +1,7 @@
-import constants from "helpers/constants"
-
 import submitText from "actions/submit_text"
 
-const startListening = () => (dispatch, getState) => {
-  const state = getState()
-
-  let rec = new webkitSpeechRecognition()
+const startListening = () => dispatch => {
+  let rec = new window.webkitSpeechRecognition()
   rec.lang = "en-US"
   rec.interimResults = false
   rec.maxAlternatives = 5
