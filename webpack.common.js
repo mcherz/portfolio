@@ -1,28 +1,31 @@
 const path = require("path")
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
-const webpack = require("webpack")
+const globImporter = require("node-sass-glob-importer")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
-  devtool: "source-map",
-  entry: "./src/index.js",
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
-  },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(css|scss|sass)$/,
+        use: [
+          { loader: MiniCssExtractPlugin.loader, options: { publicPath: "../" } },
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
+          { loader: "sass-loader",
+            options: {
+              importer: globImporter()
+            }
+          },
+        ],
+      },
+      {
+        test: /\.(js|jsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         query: {
-          presets: ["react"]
+          presets: ["@babel/react"]
         }
       },
-      {
-        test: /\.css$/,
-        loader: "file-loader?name=[name].[ext]"
-      }
     ]
   },
   resolve: {
@@ -31,5 +34,10 @@ module.exports = {
       path.resolve("./node_modules")
     ]
   },
-  plugins: []
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+      chunkFilename: "styles.css"
+    })
+  ]
 }
