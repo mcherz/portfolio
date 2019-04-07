@@ -8,6 +8,7 @@
     "build-server": "webpack --config webpack.prod.js --colors --progress; webpack --config webpack.server.js --colors --progress; node dist/server.js",
     "start": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
     "test": "jest",
+    "lint": "eslint --ignore-pattern \"*.css\" \"src/**\" ",
     "precommit": "lint-staged",
     "heroku-postbuild": "npm run webpack --config webpack.prod.js --colors; npm run webpack --config webpack.server.js --colors"
   },
