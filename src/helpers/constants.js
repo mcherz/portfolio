@@ -1,5 +1,3 @@
-import { SET_LISTENING_TIMEOUT } from "../actions/speech_actions"
-
 const constants = {
   APP_RESPONSE: "app",
   USER_QUERY: "query",

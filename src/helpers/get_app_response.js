@@ -1,3 +1,5 @@
+
+/* eslint max-len: */  // --> OFF
 import React from "react" //eslint-disable-line
 import ElizaBot from "elizabot"
 import bowser from "bowser"
@@ -26,7 +28,7 @@ const getAppResponse = (inputString, state, dispatch) => {
       jsx: <span>I'm honestly a little gunshy about putting my cell phone number where internet weirdos can find it. Try email?</span>,
       plainText: "How does that song go? Eight six seven five three oh nine? No, wait, that's Jenny, not me."
     },
-  
+
     alexa: {
       jsx: <span>Alexa, order six tons of chipped beef. Alexa, confirm purchase.</span>,
       plainText: "Alexa, order six tons of chipped beef. Alexa, confirm purchase."
@@ -43,7 +45,7 @@ const getAppResponse = (inputString, state, dispatch) => {
       jsx: <span>Hey, Siri. How many developer years has Apple spent on you to date?</span>,
       plainText: "Hey, Siri. How many developer years has Apple spent on you to date?"
     },
-  
+
     eliza: {
       jsx: <span>Come now. If you could plug an open source chatbot in for free, you wouldn't write one either.</span>,
       plainText: "Come now. If you could plug an open source chatbot in for free, you wouldn't write one either."
@@ -66,7 +68,7 @@ const getAppResponse = (inputString, state, dispatch) => {
       plainText: "I can't just TELL you what they all are; that wouldn't be fun. (But the 'Alexa' one is probably my favorite)."
     }
   }
-  
+
   const promptSpeech = state.response.responseCount === 2 && !state.speech.speechRecActive && bowser.name === "Chrome" && bowser.osname !== "ios"
   const lowString = inputString.toLowerCase()
   switch (true) {
@@ -100,13 +102,14 @@ const getAppResponse = (inputString, state, dispatch) => {
       return magic.phone
     case lowString.match("easter egg") !== null:
       return magic.easter_eggs
-    default:
+    default: {
       const eliza = new ElizaBot()
       const returnString = eliza.transform(inputString)
       return {
         jsx: <span>{returnString}</span>,
         plainText: returnString
       }
+    }
   }
 }
 

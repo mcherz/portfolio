@@ -7,7 +7,7 @@ describe("Speech Reducer tests", () => {
   it("should return the initial state", () => {
     expect(
       reducer(undefined, {})
-      ).toEqual(speechInitialState)
+    ).toEqual(speechInitialState)
   })
 
   it("should set the speech synth state", () => {
@@ -18,7 +18,7 @@ describe("Speech Reducer tests", () => {
         type: types.SET_SPEECH_SYNTH_ACTIVE,
         payload: false
       })
-      ).toEqual(
+    ).toEqual(
       {
         speechSynthActive: false
       }
@@ -33,7 +33,7 @@ describe("Speech Reducer tests", () => {
         type: types.SET_SPEECH_REC_ACTIVE,
         payload: false
       })
-      ).toEqual(
+    ).toEqual(
       {
         speechRecActive: false
       }
@@ -48,7 +48,7 @@ describe("Speech Reducer tests", () => {
         type: types.SET_MODAL_OPEN,
         payload: false
       })
-      ).toEqual(
+    ).toEqual(
       {
         modalOpen: false
       }
@@ -63,7 +63,7 @@ describe("Speech Reducer tests", () => {
         type: types.SET_RECOGNIZER,
         payload: {wild: "class instance appears"}
       })
-      ).toEqual(
+    ).toEqual(
       {
         recognizer: {wild: "class instance appears"}
       }

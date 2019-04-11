@@ -4,8 +4,6 @@ import bowser from "bowser"
 import Conversation from "components/conversation"
 import { Volume2, VolumeX } from "icons/volume"
 
-import constants from "helpers/constants"
-
 class Portfolio extends React.Component {
   componentDidMount = () => {
     if (this.typeEntry) {
@@ -34,7 +32,7 @@ class Portfolio extends React.Component {
       .then((stream) => {
         const track = stream.getTracks()[0]  // if only one media track
         track.stop()
-        
+
         this.props.startSpeechRecognition()
 
       })
@@ -48,7 +46,12 @@ class Portfolio extends React.Component {
       return null
     } else {
       return <div className="entry">
-        <input ref={(input) => {this.typeEntry = input}} className="type-entry" type="text" onKeyDown={this.handleInputKeydown} />
+        <input
+          ref={(input) => {this.typeEntry = input}}
+          className="type-entry"
+          type="text"
+          onKeyDown={this.handleInputKeydown}
+        />
         <button className="type-commit" onClick={this.handleButtonClick}>Say it</button>
       </div>
     }
@@ -59,7 +62,11 @@ class Portfolio extends React.Component {
       if (this.props.speechRecActive) {
         return null
       } else {
-        return <div id="awesome" className="input-subtitle">Want to try this <a onClick={() => {this.props.setModalOpen(true)}} >the awesome way</a>?</div>
+        return <div id="awesome" className="input-subtitle">
+          Want to try this
+          <a onClick={() => {this.props.setModalOpen(true)}} >the awesome way</a>
+          ?
+        </div>
       }
     } else if (!bowser.x) {
       return <div id="chrome" className="input-subtitle">Protip: the coolest part only works in <a href="https://www.google.com/chrome/browser/" target="_blank" rel="noreferrer noopener" >Chrome</a>.</div>
@@ -69,7 +76,10 @@ class Portfolio extends React.Component {
   }
 
   renderSoundControl = () => {
-    return <div className="synth-control" onClick={() => {this.props.setSpeechSynthActive(!this.props.speechSynthActive)}} >
+    return <div
+      className="synth-control"
+      onClick={() => {this.props.setSpeechSynthActive(!this.props.speechSynthActive)}}
+    >
       {this.props.speechSynthActive ? VolumeX : Volume2}
     </div>
   }
@@ -77,11 +87,22 @@ class Portfolio extends React.Component {
   renderTakeover = () => {
     return <div className="takeover">
       <div className="modal">
-        <div className="modal-text">Spoiler alert: the awesome way is voice recognition.</div>
-        <div className="modal-text">In just a sec, the browser will ask you to allow microphone access (because otherwise there's nothing to recognize.)</div>
+        <div className="modal-text">
+          Spoiler alert: the awesome way is voice recognition.
+        </div>
+        <div className="modal-text">
+          In just a sec, the browser will ask you to allow microphone access
+          (because otherwise there's nothing to recognize.)
+        </div>
         <div className="modal-buttons">
-          <button className="modal-confirm" onClick={this.handleTheAwesomeWay}>Let's do it!</button>
-          <button className="modal-cancel" onClick={() => {this.props.setModalOpen(false)}}>Creepy, no.</button>  
+          <button
+            className="modal-confirm"
+            onClick={this.handleTheAwesomeWay}
+          >Let's do it!</button>
+          <button
+            className="modal-cancel"
+            onClick={() => {this.props.setModalOpen(false)}}
+          >Creepy, no.</button>
         </div>
       </div>
     </div>

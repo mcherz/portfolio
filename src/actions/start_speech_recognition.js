@@ -9,8 +9,10 @@ const startSpeechRecognition = () => dispatch => {
   dispatch(setSpeechRecActive(true))
   dispatch(setSpeechSynthActive(true))
   dispatch(clearResponses())
-  dispatch(addResponse(constants.APP_RESPONSE, "Talk to me, goose! No, really, just start talking."))
-  let utterThis = new SpeechSynthesisUtterance("Talk to me, goose! No, really, just start talking.")
+  dispatch(addResponse(
+    constants.APP_RESPONSE, "Talk to me, goose! No, really, just start talking."))
+  let utterThis = new SpeechSynthesisUtterance(
+    "Talk to me, goose! No, really, just start talking.")
   utterThis.onend = () => {
     dispatch(startListening())
   }
