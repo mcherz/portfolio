@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js --colors --progress",
+    "build-both": "webpack --config webpack.prod.js --colors --progress && webpack --config webpack.server.prod.js --colors --progress",
     "build-server": "webpack --config webpack.server.prod.js --colors --progress",
-    "heroku-postbuild": "npm run webpack --config webpack.prod.js --colors; npm run webpack --config webpack.server.prod.js --colors",
+    "heroku-postbuild": "npm run build-both",
     "lint": "eslint --ignore-pattern \"*css\" \"src/**\" ",
     "precommit": "lint-staged",
     "start": "webpack --config webpack.server.dev.js && node ./dist/server.js",
@@ -53,6 +54,9 @@
     "redux-thunk": "2.3.0",
     "reselect": "4.0.0",
     "webpack": "4.29.6",
+    "webpack-cli": "3.3.0",
+    "webpack-merge": "4.2.1",
+    "webpack-node-externals": "1.7.2",
     "ws": "^7.1.2"
   },
   "devDependencies": {
@@ -87,9 +91,6 @@
     "react-test-renderer": "16.10.2",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
-    "uglifyjs-webpack-plugin": "2.1.2",
-    "webpack-cli": "3.3.0",
-    "webpack-merge": "4.2.1",
-    "webpack-node-externals": "1.7.2"
+    "uglifyjs-webpack-plugin": "2.1.2"
   }
 }
