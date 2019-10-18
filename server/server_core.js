@@ -17,9 +17,9 @@ export default port => {
   }
 
   const app = express()
-  app.use(express.static("dist"))
   production && app.use(sslRedirect())
   production && app.use(compression())
+  app.use(express.static("dist"))
   app.get("/", (req, res) => {
     res.write("<!doctype html>")
     ReactDOMServer.renderToNodeStream(
