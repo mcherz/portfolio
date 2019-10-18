@@ -1,16 +1,31 @@
 const common = require("./webpack.common")
 const merge = require("webpack-merge")
 const path = require("path")
+const nodeExternals = require("webpack-node-externals")
 
-module.exports = merge(common, {
+const bundle = merge(common, {
   mode: "development",
   devtool: "cheap-module-eval-source-map",
-  entry: ["./src/index-dev.js", "./src/styles.js"],
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dev")
+  entry: {
+    bundle: ["./src/index.js", "./src/styles.js"],
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, "dev")
+  output: {},
+  resolve: {
+    modules: [ path.resolve("./src") ],
   },
 })
+
+const root = merge(common, {
+  mode: "development",
+  externals: [nodeExternals()],
+  devtool: "cheap-module-eval-source-map",
+  entry: {
+    root: ["./src/components/portfolio_redux_root.js"],
+  },
+  output: {},
+  resolve: {
+    modules: [ path.resolve("./src") ],
+  }
+})
+
+module.exports = [ root, bundle ]
