@@ -9,14 +9,15 @@ import thunkMiddleware from "redux-thunk"
 
 import rootReducers from "reducers/root_reducers"
 
-import PortfolioContainer from "containers/portfolio_container"
+import Portfolio from "components/portfolio"
 
 let store
 let composeEnhancers
 
 class PortfolioReduxRoot extends React.Component{
 
-  componentWillMount(){
+  constructor(props){
+    super(props)
     // setting dev tools up per question - until we redo the job_batch/job flow in react
     composeEnhancers =
       typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
@@ -28,7 +29,7 @@ class PortfolioReduxRoot extends React.Component{
       applyMiddleware(thunkMiddleware)
     )
 
-    let initialState = this.props
+    let initialState = props
 
     store = createStore(rootReducers, initialState, enhancer)
   }
@@ -36,7 +37,7 @@ class PortfolioReduxRoot extends React.Component{
   render() {
     return(
       <Provider store={store}>
-        <PortfolioContainer />
+        <Portfolio />
       </Provider>
     )
   }
