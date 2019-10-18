@@ -3,6 +3,7 @@ import ReactDOMServer from "react-dom/server"
 
 import http from "http"
 import express from "express"
+import compression from "compression"
 import sslRedirect from "heroku-ssl-redirect"
 
 import makeDevServer from "./server_dev"
@@ -17,8 +18,10 @@ export default port => {
 
   const app = express()
   app.use(express.static("dist"))
-  app.use(sslRedirect())
+  production && app.use(sslRedirect())
+  production && app.use(compression())
   app.get("/", (req, res) => {
+    res.write("<!doctype html>")
     ReactDOMServer.renderToNodeStream(
       htmlTemplate(React.createElement(components.root), port)
     ).pipe(res)
