@@ -41,15 +41,19 @@
   "homepage": "https://github.com/mcherz/portfolio#readme",
   "dependencies": {
     "bowser": "^1.9.1",
+    "chokidar": "3.2.1",
     "dot-prop-immutable": "^1.4.0",
     "elizabot": "^0.0.2",
     "express": "4.17.1",
+    "heroku-ssl-redirect": "0.0.4",
     "react": "16.10.2",
     "react-dom": "16.10.2",
     "react-redux": "6.0.1",
     "redux": "4.0.1",
     "redux-thunk": "2.3.0",
-    "reselect": "4.0.0"
+    "reselect": "4.0.0",
+    "webpack": "4.29.6",
+    "ws": "^7.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -65,7 +69,6 @@
     "autoprefixer": "9.5.0",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",
-    "chokidar": "3.2.1",
     "css-loader": "2.1.1",
     "enzyme": "3.9.0",
     "enzyme-adapter-react-16": "1.11.2",
@@ -73,7 +76,6 @@
     "eslint-plugin-babel": "5.3.0",
     "eslint-plugin-jest": "22.4.1",
     "eslint-plugin-react": "7.12.4",
-    "heroku-ssl-redirect": "0.0.4",
     "husky": "3.0.8",
     "jest": "24.6.0",
     "lint-staged": "9.4.2",
@@ -86,10 +88,8 @@
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "uglifyjs-webpack-plugin": "2.1.2",
-    "webpack": "4.29.6",
     "webpack-cli": "3.3.0",
     "webpack-merge": "4.2.1",
-    "webpack-node-externals": "1.7.2",
-    "ws": "^7.1.2"
+    "webpack-node-externals": "1.7.2"
   }
 }
