@@ -5,7 +5,7 @@ const nodeExternals = require("webpack-node-externals")
 
 const bundle = merge(common, {
   mode: "development",
-  devtool: "cheap-module-eval-source-map",
+  devtool: "cheap-eval-source-map",
   entry: {
     bundle: ["./src/index.js", "./src/styles.js"],
   },

@@ -19,8 +19,8 @@ const InputSubtitle = props => {
       return null
     } else {
       return <div id="awesome" className="input-subtitle">
-        Want to try this
-        <a onClick={() => {props.setModalOpen(true)}} > the awesome way</a>
+        Want to try this&nbsp;
+        <a onClick={() => {props.setModalOpen(true)}} >the awesome way</a>
         ?
       </div>
     }
@@ -112,9 +112,19 @@ class Portfolio extends React.Component {
       <div className="wrapper">
         <Conversation responseArray={this.props.responseArray} />
         {!this.props.speechRecActive && <div className="entry">
+          <label
+            id="entry-label"
+            htmlFor="entry"
+            className="screen-reader-text"
+            aria-hidden={false}
+          >
+            enter your text
+          </label>
           <input
             ref={(input) => {this.typeEntry = input}}
+            aria-labelledby="entry-label"
             className="type-entry"
+            name="entry"
             type="text"
             onKeyDown={this.handleInputKeydown}
           />
