@@ -1,25 +1,13 @@
 import React from "react"
 
-import constants from "helpers/constants"
+import Response from "components/response"
 
 class Conversation extends React.Component {
-  renderResponses = () => {
-    let responses = []
-    for (let r = 0; r < this.props.responseArray.length; r++) {
-      const response = this.props.responseArray[r]
-      responses.push(<div key={r} className={response.party === constants.APP_RESPONSE
-        ? "response"
-        : "query"
-      }>
-        {response.text}
-      </div>)
-    }
-    return responses
-  }
-
   render = () => {
     return <div className="conversation">
-      {this.renderResponses()}
+      {(this.props.responseArray).map((response, index) => {
+        return <Response key={index} response={response} />
+      })}
     </div>
   }
 }
