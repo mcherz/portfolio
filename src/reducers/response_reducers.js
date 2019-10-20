@@ -1,5 +1,4 @@
 import React from "react"
-import dotProp from "dot-prop-immutable"
 
 import constants from "helpers/constants"
 // import actions
@@ -24,14 +23,14 @@ function response(state = responseInitialState, action){
       if (returnArray.length > constants.MAX_CONVERSATION) {
         returnArray.shift()
       }
-      return dotProp.set(state, "responseArray", returnArray)
+      return { ...state, responseArray: returnArray }
     }
     case responseActions.CLEAR_RESPONSES:
-      return dotProp.set(state, "responseArray", [])
+      return { ...state, responseArray: [] }
     case responseActions.SET_BUTTON_ACTIVE:
-      return dotProp.set(state, "buttonActive", action.payload)
+      return { ...state, buttonActive: action.payload }
     case responseActions.INCREMENT_RESPONSE_COUNT:
-      return dotProp.set(state, "responseCount", state.responseCount + 1)
+      return { ...state, responseCount: state.responseCount + 1 }
     default:
       return state
   }
