@@ -1,3 +1,4 @@
+import React from "react"
 import dotProp from "dot-prop-immutable"
 
 import constants from "helpers/constants"
@@ -8,7 +9,10 @@ import * as responseActions from "actions/response_actions"
 export const responseInitialState = {
   buttonActive: true,
 
-  responseArray: [{party: constants.APP_RESPONSE, text:"Hi there. Let's chat."}],
+  responseArray: [{
+    party: constants.APP_RESPONSE,
+    text: <span>"Hi there. Let's chat."</span>
+  }],
   responseCount: 0
 }
 
