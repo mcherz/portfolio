@@ -1,2 +1,7 @@
 node_modules
 dist
+rootCA*
+server.crt
+server.csr*
+server.key
+v3.ext
